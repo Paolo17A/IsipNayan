@@ -144,6 +144,8 @@ public class MainMenuCore : MonoBehaviour
 
     public void ShowGameSelectPanel()
     {
+        ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
+        ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
         GameManager.Instance.AnimationsLT.FadePanel(GameSelectRT, null, GameSelectCG, 0, 1, () => { });
     }
 
@@ -400,6 +402,13 @@ public class MainMenuCore : MonoBehaviour
             CurrentStoryPageIndex++;
             DisplayCurrentStoryPage();
         }
+    }
+    #endregion
+
+    #region GAME SELECT
+    public void OpenRacecarScene()
+    {
+        GameManager.Instance.SceneController.CurrentScene = "RacecarScene";
     }
     #endregion
 

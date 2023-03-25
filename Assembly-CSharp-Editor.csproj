@@ -327,14 +327,23 @@
     <Reference Include="UnityEditor.UWP.Extensions">
       <HintPath>D:\Program Files\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.6\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.6\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.Unsafe.dll</HintPath>
@@ -344,6 +353,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\Microsoft.IdentityModel.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
@@ -366,8 +378,14 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client">
+      <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\Microsoft.Identity.Client.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -822,6 +840,9 @@
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Toolchain.Win-x86_64-Linux-x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
@@ -851,6 +872,9 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -936,12 +960,6 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Sysroot.Linux_x86_64">
-      <HintPath>Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Toolchain.Win-x86_64-Linux-x86_64">
-      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll</HintPath>
     </Reference>
@@ -950,6 +968,18 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{B96E5558-BF99-D492-90DD-48639CFDF608}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabSDKEditor.csproj">
+      <Project>{FD0B2B92-5018-614E-9577-E0BE459D4CCA}</Project>
+      <Name>PlayFabSDKEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabEditorExtensions.csproj">
+      <Project>{2183E25F-47BB-B462-3E7B-8919E95CE348}</Project>
+      <Name>PlayFabEditorExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFab.csproj">
+      <Project>{6FC3D097-0363-60FC-BFF6-C22CD366CF54}</Project>
+      <Name>PlayFab</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

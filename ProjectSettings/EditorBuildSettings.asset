@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/001 - IsipNayan/000 - Scenes/MainMenuScene.unity
     guid: 80c74ee09489a7f4d965300ef3a1fd98
+  - enabled: 1
+    path: Assets/001 - IsipNayan/000 - Scenes/RacecarScene.unity
+    guid: f8a5ac700b85a1c46bf93d7289a8467b
   m_configObjects: {}

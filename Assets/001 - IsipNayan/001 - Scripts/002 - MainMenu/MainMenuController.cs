@@ -20,8 +20,10 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-
-        MainMenuCore.CurrentMainMenuState = MainMenuCore.MainMenuStates.LOGIN;
+        if (GameManager.Instance.SceneController.LastScene == "RacecarScene" || GameManager.Instance.SceneController.LastScene == "QuizScene")
+            MainMenuCore.CurrentMainMenuState = MainMenuCore.MainMenuStates.GAMESELECT;
+        else
+            MainMenuCore.CurrentMainMenuState = MainMenuCore.MainMenuStates.LOGIN;
     }
 
     private void MainMenuStateChange(object sender, EventArgs e)

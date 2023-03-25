@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public enum Result { NONE, VICTORY, DEFEAT};
     [field: SerializeField] public List<GameObject> GameMangerObj { get; set; }
 
     [field: SerializeField] public bool DebugMode { get; set; }
@@ -58,7 +59,39 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SceneController.CurrentScene = "MainMenuScene";
+        if (DebugMode)
+            SceneController.CurrentScene = SceneToLoad;
+        else
+        {
+            SceneController.CurrentScene = "MainMenuScene";
+
+        }
+    }
+    #endregion
+
+    #region UTILITY
+    public string DeserializeStringValue(string value, string key)
+    {
+        Dictionary<string, string> result = JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
+
+        return result[key];
+    }
+
+    public int DeserializeIntValue(string value, string key)
+    {
+        Dictionary<string, int> result = JsonConvert.DeserializeObject<Dictionary<string, int>>(value);
+
+        return result[key];
+    }
+
+    public string SerializeIntValue(List<string> keyValues, List<int> values)
+    {
+        Dictionary<string, int> dict = new Dictionary<string, int>();
+
+        for (int a = 0; a < keyValues.Count; a++)
+            dict.Add(keyValues[a], values[a]);
+
+        return JsonConvert.SerializeObject(dict);
     }
     #endregion
 }
