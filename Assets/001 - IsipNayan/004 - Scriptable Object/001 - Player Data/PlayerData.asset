@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   <PlayFabID>k__BackingField: 
-  <Username>k__BackingField: rere
-  <EmailAddress>k__BackingField: 33333
+  <Username>k__BackingField: 
+  <EmailAddress>k__BackingField: 
   <PlayerHistory>k__BackingField: []

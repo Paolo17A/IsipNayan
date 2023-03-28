@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Newtonsoft.Json;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class RacecarCore : MonoBehaviour
 {
@@ -78,6 +81,8 @@ public class RacecarCore : MonoBehaviour
     [Header("ERROR")]
     [SerializeField] private GameObject ErrorPanel;
     [SerializeField] private TextMeshProUGUI ErrorTMP;
+
+    int failedCallbackCounter;
     //=========================================================================================================
     #endregion
 
@@ -222,9 +227,11 @@ public class RacecarCore : MonoBehaviour
     {
         VictoryPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.RACECAR, FinalResult, DriverCore.CurrentScore);
+        Debug.Log(JsonConvert.SerializeObject(PlayerData.PlayerHistory));
         if(!GameManager.Instance.DebugMode)
         {
             LoadingPanel.SetActive(true);
+            UpdateGameHistoryPlayFab();
         }
     }
 
@@ -232,10 +239,60 @@ public class RacecarCore : MonoBehaviour
     {
         DefeatPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.RACECAR, FinalResult, DriverCore.CurrentScore);
+        Debug.Log(JsonConvert.SerializeObject(PlayerData.PlayerHistory));
         if (!GameManager.Instance.DebugMode)
         {
             LoadingPanel.SetActive(true);
+            UpdateGameHistoryPlayFab();
         }
+    }
+
+    private void UpdateGameHistoryPlayFab()
+    {
+        UpdateUserDataRequest updateUserData = new UpdateUserDataRequest();
+        updateUserData.Data = new Dictionary<string, string>();
+        updateUserData.Data.Add("GameHistory", JsonConvert.SerializeObject(PlayerData.PlayerHistory));
+
+        PlayFabClientAPI.UpdateUserData(updateUserData, 
+            resultCallback =>
+            {
+                failedCallbackCounter = 0;
+                LoadingPanel.SetActive(false);
+                Debug.Log("game history updated online");
+            },
+            errorCallback =>
+            {
+                ErrorCallback(errorCallback.Error,
+                    UpdateGameHistoryPlayFab,
+                    () => DisplayErrorPanel(errorCallback.ErrorMessage));
+            });
+    }
+    #endregion
+
+    #region ERROR
+    private void ErrorCallback(PlayFabErrorCode errorCode, Action restartAction, Action errorAction)
+    {
+        if (errorCode == PlayFabErrorCode.ConnectionError)
+        {
+            failedCallbackCounter++;
+            if (failedCallbackCounter >= 5)
+                DisplayErrorPanel("Connectivity error. Please connect to strong internet");
+            else
+                restartAction();
+        }
+        else
+            errorAction();
+    }
+    public void DisplayErrorPanel(string errorMessage)
+    {
+        LoadingPanel.SetActive(false);
+        ErrorPanel.SetActive(true);
+        ErrorTMP.text = errorMessage;
+    }
+
+    public void CloseErrorPanel()
+    {
+        ErrorPanel.SetActive(false);
     }
     #endregion
 

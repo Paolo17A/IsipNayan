@@ -7,6 +7,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class MainMenuCore : MonoBehaviour
 {
@@ -84,6 +85,9 @@ public class MainMenuCore : MonoBehaviour
     [SerializeField] private TMP_InputField RegisterPasswordTMPInput;
     [SerializeField] private TMP_InputField RegisterConfirmPasswordTMPInput;
 
+    [Header("WELCOME")]
+    [SerializeField] private TextMeshProUGUI WelcomeTMP;
+
     [Header("STORY")]
     [SerializeField] private List<StoryPanelData> StoryPanels;
     [SerializeField][ReadOnly] private int CurrentStoryPageIndex;
@@ -95,6 +99,8 @@ public class MainMenuCore : MonoBehaviour
     [Header("PROFILE")]
     [SerializeField] private TextMeshProUGUI ProfileUsernameTMP;
     [SerializeField] private TextMeshProUGUI ProfileEmailTMP;
+    [SerializeField] private Transform HistoryContainer;
+    [SerializeField] private HistoryDataHandler HistoryPrefab;
 
     int failedCallbackCounter;
     //=============================================================================================================
@@ -121,6 +127,7 @@ public class MainMenuCore : MonoBehaviour
 
     public void ShowWelcomePanel()
     {
+        WelcomeTMP.text = "Hi " + PlayerData.Username + " welcome to iSIPNAYAN\r\n\r\nA mobile application empoyed with a game-based learning approach that will assist you in learning Mathematics! Here, you will explore different games, have fun and learn all at once! Before that, let's meet Naya through the Storyboard!";
         GameManager.Instance.AnimationsLT.FadePanel(LoginRT, LoginRT, LoginCG, 1, 0, () => { });
         GameManager.Instance.AnimationsLT.FadePanel(WelcomeRT, null, WelcomeCG, 0, 1, () => { });
     }
@@ -146,6 +153,17 @@ public class MainMenuCore : MonoBehaviour
     {
         ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
         ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
+        foreach (Transform child in HistoryContainer)
+            Destroy(child.gameObject);
+        HistoryDataHandler historyInstance;
+        foreach (PlayerData.GameHistory history in PlayerData.PlayerHistory)
+        {
+            historyInstance = Instantiate(HistoryPrefab);
+            historyInstance.transform.SetParent(HistoryContainer);
+            historyInstance.transform.localScale = Vector3.one;
+            historyInstance.transform.localPosition = new Vector3(historyInstance.transform.localPosition.x, historyInstance.transform.localPosition.y, 0);
+            historyInstance.InitializeThisHistory(history);
+        }
         GameManager.Instance.AnimationsLT.FadePanel(GameSelectRT, null, GameSelectCG, 0, 1, () => { });
     }
 
@@ -232,8 +250,8 @@ public class MainMenuCore : MonoBehaviour
             resultCallback =>
             {
                 failedCallbackCounter = 0;
+
                 PlayerData.PlayFabID = resultCallback.PlayFabId;
-                Debug.Log("logged in");
                 GetAccountInfoPlayFab();
             },
             errorCallback =>
@@ -251,10 +269,33 @@ public class MainMenuCore : MonoBehaviour
         PlayFabClientAPI.GetAccountInfo(getAccountInfo,
             resultCallback =>
             {
+                failedCallbackCounter = 0;
+
                 PlayerData.Username = resultCallback.AccountInfo.Username;
                 PlayerData.EmailAddress = LoginEmailTMPInput.text;
                 ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
                 ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
+                GetUserDataPlayFab();
+            },
+            errorCallback =>
+            {
+                ErrorCallback(errorCallback.Error,
+                   FailedAction,
+                   GetAccountInfoPlayFab,
+                   () => ProcessError(errorCallback.ErrorMessage));
+            });
+    }
+
+    private void GetUserDataPlayFab()
+    {
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(),
+            resultCallback =>
+            {
+                if(resultCallback.Data.ContainsKey("GameHistory"))
+                {
+                    PlayerData.PlayerHistory = JsonConvert.DeserializeObject<List<PlayerData.GameHistory>>(resultCallback.Data["GameHistory"].Value);
+
+                }
                 LoadingPanel.SetActive(false);
                 CurrentMainMenuState = MainMenuStates.WELCOME;
             },
@@ -262,7 +303,7 @@ public class MainMenuCore : MonoBehaviour
             {
                 ErrorCallback(errorCallback.Error,
                    FailedAction,
-                   GetAccountInfoPlayFab,
+                   GetUserDataPlayFab,
                    () => ProcessError(errorCallback.ErrorMessage));
             });
     }
@@ -343,8 +384,10 @@ public class MainMenuCore : MonoBehaviour
     private void SetUserDataPlayfab()
     {
         UpdateUserDataRequest updateUserData = new UpdateUserDataRequest();
-        updateUserData.Data = new Dictionary<string, string>();
-        updateUserData.Data.Add("GameHistory", "{}");
+        updateUserData.Data = new Dictionary<string, string>
+        {
+            { "GameHistory", "[]" }
+        };
 
         PlayFabClientAPI.UpdateUserData(updateUserData,
             resultCallback => 

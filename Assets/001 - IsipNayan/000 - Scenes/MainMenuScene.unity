@@ -1628,7 +1628,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.99999857}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5084,8 +5084,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1093785192}
+  - component: {fileID: 1093785193}
+  - component: {fileID: 1093785194}
   m_Layer: 5
-  m_Name: Content
+  m_Name: HistoryContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5108,9 +5110,49 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0.00057109044}
+  m_SizeDelta: {x: 0, y: 150.9032}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1093785193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093785191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 20
+    m_Right: 0
+    m_Top: 20
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 1
+--- !u!114 &1093785194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093785191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1132150920
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,6 +6264,7 @@ MonoBehaviour:
   RegisterEmailTMPInput: {fileID: 306191476}
   RegisterPasswordTMPInput: {fileID: 1256761449}
   RegisterConfirmPasswordTMPInput: {fileID: 975856096}
+  WelcomeTMP: {fileID: 83220886}
   StoryPanels:
   - {fileID: 11400000, guid: 01ecc3a090ca7db41af1534773d8f337, type: 2}
   - {fileID: 11400000, guid: 2252bd422568cbb49993eab37a1367e1, type: 2}
@@ -6238,6 +6281,8 @@ MonoBehaviour:
   StoryText: {fileID: 357752226}
   ProfileUsernameTMP: {fileID: 949040327}
   ProfileEmailTMP: {fileID: 69937431}
+  HistoryContainer: {fileID: 1093785192}
+  HistoryPrefab: {fileID: 2801558478254901898, guid: b9c34f09c9afb66459c0ff5b11aeb9f0, type: 3}
 --- !u!1 &1420001898
 GameObject:
   m_ObjectHideFlags: 0
@@ -9751,7 +9796,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 163497696}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999857
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
