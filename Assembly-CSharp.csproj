@@ -100,12 +100,12 @@
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\002 - MainMenu\HistoryDataHandler.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\000 - GameManager\GameManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\004 - Scriptable Objects\000 - Story Panels\StoryPanelData.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\002 - MainMenu\HistoryDataHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ReadOnlyAttribute\README.txt" />

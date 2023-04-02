@@ -28,6 +28,7 @@ public class DriverCore : MonoBehaviour
     [ReadOnly] public int CurrentScore;
     [SerializeField] private TextMeshProUGUI CurrentScoreTMP;
     [SerializeField] private float yPos;
+    [SerializeField] private TextMeshProUGUI PopUpResultTMP;
 
     [Header("DEBUGGER")]
     private Vector3 mousePos;
@@ -42,6 +43,9 @@ public class DriverCore : MonoBehaviour
         RemainingLivesTMP.text = "Remaining Lives: " + CurrentLivesLeft;
         CurrentScore = 0;
         CurrentScoreTMP.text = "Current Score: " + CurrentScore;
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(false);
+        transform.GetChild(Random.Range(0, transform.childCount)).gameObject.SetActive(true);
     }
 
     public void DetectSwipeInput()
@@ -76,6 +80,9 @@ public class DriverCore : MonoBehaviour
     #region ANSWER HANDLING
     public void ProcessCorrectAnswer()
     {
+        PopUpResultTMP.color = Color.yellow;
+        PopUpResultTMP.text = "CORRECT ANSWER!";
+        LeanTween.moveLocalY(PopUpResultTMP.gameObject, -820, 0.5f).setOnComplete(() => LeanTween.moveLocalY(PopUpResultTMP.gameObject, -1000, 0.5f).setDelay(1));
         CurrentScore++;
         CurrentScoreTMP.text = "Current Score: " + CurrentScore;
         if(CurrentScore == 10)
@@ -87,6 +94,9 @@ public class DriverCore : MonoBehaviour
 
     public void ProcessIncorrectAnswer()
     {
+        PopUpResultTMP.color = Color.red;
+        PopUpResultTMP.text = "WRONG ANSWER!";
+        LeanTween.moveLocalY(PopUpResultTMP.gameObject, -820, 0.5f).setOnComplete(() => LeanTween.moveLocalY(PopUpResultTMP.gameObject, -1000, 0.5f).setDelay(1));
         CurrentLivesLeft--;
         RemainingLivesTMP.text = "Remaining Lives: " + CurrentLivesLeft;
         if (CurrentLivesLeft == 0)
