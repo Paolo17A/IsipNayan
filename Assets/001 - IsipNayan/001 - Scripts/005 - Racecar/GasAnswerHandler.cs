@@ -23,12 +23,10 @@ public class GasAnswerHandler : MonoBehaviour
     {
         if (IsCorrectAnswer)
         {
-            Debug.Log("collided with correct answer");
             DriverCore.ProcessCorrectAnswer();
         }
         else
         {
-            Debug.Log("collided with incorrect answer");
             DriverCore.ProcessIncorrectAnswer();
         }
         RacecarCore.ToggleGasAnswers(false);

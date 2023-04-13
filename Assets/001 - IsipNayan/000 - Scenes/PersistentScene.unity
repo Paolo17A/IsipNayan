@@ -790,8 +790,8 @@ MonoBehaviour:
   - {fileID: 983951148}
   - {fileID: 126056084}
   - {fileID: 1566619191}
-  <DebugMode>k__BackingField: 0
-  SceneToLoad: RacecarScene
+  <DebugMode>k__BackingField: 1
+  SceneToLoad: CombatScene
   <CanUseButtons>k__BackingField: 0
   <MainCamera>k__BackingField: {fileID: 1879988193}
   <MyUICamera>k__BackingField: {fileID: 380094852}
@@ -1187,7 +1187,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 9.6
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2

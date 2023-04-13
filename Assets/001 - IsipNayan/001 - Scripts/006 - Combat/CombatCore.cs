@@ -1,0 +1,245 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using UnityEngine;
+using static RacecarCore;
+
+public class CombatCore : MonoBehaviour
+{
+    #region STATE MACHINE
+    public enum CombatStates
+    {
+        NONE,
+        COUNTDOWN,
+        TIMER,
+        PLAYERTURN,
+        ENEMYTURN,
+        GAMEOVER
+    }
+
+    private event EventHandler combatStateChange;
+    public event EventHandler onCombatStateChange
+    {
+        add
+        {
+            if (combatStateChange == null || !combatStateChange.GetInvocationList().Contains(value))
+                combatStateChange += value;
+        }
+        remove { combatStateChange -= value; }
+    }
+
+    public CombatStates CurrentCombatState
+    {
+        get => combatState;
+        set
+        {
+            combatState = value;
+            combatStateChange?.Invoke(this, EventArgs.Empty);
+        }
+    }
+    [SerializeField][ReadOnly] private CombatStates combatState;
+    #endregion
+
+    #region VARIABLES
+    //==================================================================================================================
+    [SerializeField] private PlayerData PlayerData;
+
+    [Header("COUNTDOWN VARIABLES")]
+    [SerializeField] private GameObject CountdownPanel;
+    [SerializeField] private TextMeshProUGUI CountdownTMP;
+    [SerializeField][ReadOnly] private float CountdownValue;
+
+    [Header("TIMER")]
+    [SerializeField] private TextMeshProUGUI TimerTMP;
+    [SerializeField] private int MaxTimerValue;
+    [field: SerializeField][field: ReadOnly] public int CurrentTimerValue { get; set; }
+    [SerializeField][ReadOnly] private float TimerValueLeft;
+
+    [Header("QUESTION")]
+    [SerializeField] private List<QuestionData> AllQuestions;
+    [SerializeField] private TextMeshProUGUI QuestionTMP;
+    [SerializeField] private List<ChoiceButtonHandler> ChoiceButtons;
+    [SerializeField][ReadOnly] private int CurrentQuestionIndex;
+
+    [Header("CHARACTERS")]
+    public CharacterCombatCore PlayerCharacter;
+    public CharacterCombatCore EnemyCharacter;
+
+    [Header("PAUSE")]
+    [SerializeField] private GameObject PausePanel;
+
+    [Header("GAME OVER")]
+    [ReadOnly] public GameManager.Result FinalResult;
+    [SerializeField] private GameObject VictoryPanel;
+    [SerializeField] private GameObject DefeatPanel;
+
+    [Header("LOADING")]
+    [SerializeField] private GameObject LoadingPanel;
+    //==================================================================================================================
+    #endregion
+
+    #region INITIALIZATION
+    public void InitializeQuizGame()
+    {
+        #region COUNTDOWN
+        CountdownPanel.SetActive(true);
+        CountdownValue = 4;
+        CountdownTMP.text = CountdownValue.ToString();
+        #endregion
+
+        #region QUESTIONS
+        Shuffle(AllQuestions);
+        CurrentQuestionIndex = 0;
+        ToggleQuestionObjects(false);
+        #endregion
+
+        #region CHARACTERS
+        PlayerCharacter.InitializeCharacter();
+        EnemyCharacter.InitializeCharacter();
+        #endregion
+
+        #region GAMEOVER
+        FinalResult = GameManager.Result.NONE;
+        VictoryPanel.SetActive(false);
+        DefeatPanel.SetActive(false);
+        LoadingPanel.SetActive(false);
+        #endregion
+    }
+
+    public void ReduceCountdownTimer()
+    {
+        if (CountdownValue > 1)
+        {
+            CountdownValue -= Time.deltaTime;
+            CountdownTMP.text = Mathf.FloorToInt(Math.Max(0, CountdownValue)).ToString();
+        }
+        else
+        {
+            CountdownPanel.SetActive(false);
+            CurrentCombatState = CombatStates.TIMER;
+
+        }
+    }
+    #endregion
+
+    #region TIMER
+    public void ResetTimer()
+    {
+        CurrentTimerValue = MaxTimerValue;
+        TimerValueLeft = CurrentTimerValue;
+        TimerTMP.text = CurrentTimerValue.ToString();
+
+        DisplayCurrentQuestion();
+    }
+
+    public void DecreaseTimer()
+    {
+        if (CurrentTimerValue > 0)
+        {
+            TimerValueLeft -= Time.deltaTime;
+            CurrentTimerValue = (int)TimerValueLeft;
+            TimerTMP.text = CurrentTimerValue.ToString();
+        }
+        else
+        {
+            ToggleQuestionObjects(false);
+            CurrentCombatState = CombatStates.ENEMYTURN;
+        }
+    }
+
+    #endregion
+
+    #region QUESTIONS
+    private void ToggleQuestionObjects(bool _bool)
+    {
+        QuestionTMP.gameObject.SetActive(_bool);
+        foreach (ChoiceButtonHandler choice in ChoiceButtons)
+            choice.gameObject.SetActive(_bool);
+        TimerTMP.gameObject.SetActive(_bool);
+    }
+
+    private void DisplayCurrentQuestion()
+    {
+        ToggleQuestionObjects(true);
+        QuestionTMP.text = AllQuestions[CurrentQuestionIndex].Question;
+        Shuffle(AllQuestions[CurrentQuestionIndex].Choices);
+        for (int i = 0; i < ChoiceButtons.Count; i++)
+        {
+            ChoiceButtons[i].AssignAnswer(AllQuestions[CurrentQuestionIndex].Choices[i]);
+            if (AllQuestions[CurrentQuestionIndex].Answer == AllQuestions[CurrentQuestionIndex].Choices[i])
+                ChoiceButtons[i].IsCorrectAnswer = true;
+            else
+                ChoiceButtons[i].IsCorrectAnswer = false;
+        }
+    }
+
+    public void AssignNewQuestion()
+    {
+        CurrentQuestionIndex++;
+        if(CurrentQuestionIndex == AllQuestions.Count)
+        {
+            CurrentQuestionIndex = 0;
+            Shuffle(AllQuestions);
+        }
+        ToggleQuestionObjects(false);
+    }
+    #endregion
+
+    #region PAUSE
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        PausePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        ResumeGame();
+        CurrentCombatState = CombatStates.COUNTDOWN;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        ResumeGame();
+        GameManager.Instance.SceneController.CurrentScene = "MainMenuScene";
+    }
+    #endregion
+
+    #region GAME OVER
+    public void ProcessVictory()
+    {
+        VictoryPanel.SetActive(true);
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+    }
+
+    public void ProcessDefeat()
+    {
+        DefeatPanel.SetActive(true);
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+    }
+    #endregion
+
+    #region UTILITY
+    public void Shuffle<Transform>(List<Transform> ts)
+    {
+        var count = ts.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = ts[i];
+            ts[i] = ts[r];
+            ts[r] = tmp;
+        }
+    }
+    #endregion
+}
