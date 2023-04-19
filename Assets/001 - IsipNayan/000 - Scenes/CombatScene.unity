@@ -2605,6 +2605,8 @@ MonoBehaviour:
   VictoryPanel: {fileID: 1206441711}
   DefeatPanel: {fileID: 673236758}
   LoadingPanel: {fileID: 861666983}
+  ErrorPanel: {fileID: 2030592932}
+  ErrorTMP: {fileID: 97969362}
 --- !u!114 &786298159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3416,9 +3418,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuCore, Assembly-CSharp
-        m_MethodName: HideErrorPanel
+      - m_Target: {fileID: 786298158}
+        m_TargetAssemblyTypeName: CombatCore, Assembly-CSharp
+        m_MethodName: CloseErrorPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -14,7 +14,6 @@ public class PlayerData : ScriptableObject
     [field: SerializeField] public List<GameHistory> PlayerHistory { get; set; }
     public void ResetPlayerData()
     {
-        Debug.Log("resetting all data");
         PlayFabID = "";
         Username = "";
         EmailAddress = "";

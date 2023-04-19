@@ -1,4 +1,6 @@
 using Newtonsoft.Json;
+using PlayFab.ClientModels;
+using PlayFab;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,6 +80,12 @@ public class CombatCore : MonoBehaviour
 
     [Header("LOADING")]
     [SerializeField] private GameObject LoadingPanel;
+
+    [Header("ERROR")]
+    [SerializeField] private GameObject ErrorPanel;
+    [SerializeField] private TextMeshProUGUI ErrorTMP;
+
+    private int failedCallbackCounter;
     //==================================================================================================================
     #endregion
 
@@ -219,12 +227,62 @@ public class CombatCore : MonoBehaviour
     {
         VictoryPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        UpdateGameHistoryPlayFab();
     }
 
     public void ProcessDefeat()
     {
         DefeatPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        UpdateGameHistoryPlayFab();
+    }
+
+    private void UpdateGameHistoryPlayFab()
+    {
+        UpdateUserDataRequest updateUserData = new UpdateUserDataRequest();
+        updateUserData.Data = new Dictionary<string, string>();
+        updateUserData.Data.Add("GameHistory", JsonConvert.SerializeObject(PlayerData.PlayerHistory));
+
+        PlayFabClientAPI.UpdateUserData(updateUserData,
+            resultCallback =>
+            {
+                failedCallbackCounter = 0;
+                LoadingPanel.SetActive(false);
+                Debug.Log("game history updated online");
+            },
+            errorCallback =>
+            {
+                ErrorCallback(errorCallback.Error,
+                    UpdateGameHistoryPlayFab,
+                    () => DisplayErrorPanel(errorCallback.ErrorMessage));
+            });
+    }
+    #endregion
+
+    #region ERROR
+    private void ErrorCallback(PlayFabErrorCode errorCode, Action restartAction, Action errorAction)
+    {
+        if (errorCode == PlayFabErrorCode.ConnectionError)
+        {
+            failedCallbackCounter++;
+            if (failedCallbackCounter >= 5)
+                DisplayErrorPanel("Connectivity error. Please connect to strong internet");
+            else
+                restartAction();
+        }
+        else
+            errorAction();
+    }
+    public void DisplayErrorPanel(string errorMessage)
+    {
+        LoadingPanel.SetActive(false);
+        ErrorPanel.SetActive(true);
+        ErrorTMP.text = errorMessage;
+    }
+
+    public void CloseErrorPanel()
+    {
+        ErrorPanel.SetActive(false);
     }
     #endregion
 

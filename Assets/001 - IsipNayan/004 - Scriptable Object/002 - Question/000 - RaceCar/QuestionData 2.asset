@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db49eeaf149af914d99235b5bfcc2cb8, type: 3}
   m_Name: QuestionData 2
   m_EditorClassIdentifier: 
-  Question: 561 X 7 =
+  Question: 3 x 8 =
   Choices:
-  - 3927
-  - 3517
-  - 3767
-  Answer: 3927
+  - 24
+  - 64
+  - 11
+  Answer: 24

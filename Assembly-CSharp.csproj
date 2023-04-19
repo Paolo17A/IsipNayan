@@ -76,11 +76,13 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CombatController.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CharacterCombatCore.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\000 - GameManager\AnimationsLT.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
@@ -94,23 +96,21 @@
     <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\001 - Camera\CanvasUICameraSetter.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\ChoiceButtonHandler.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\005 - Racecar\RacecarController.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\002 - MainMenu\MainMenuCore.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CombatCore.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\002 - MainMenu\HistoryDataHandler.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\000 - GameManager\GameManager.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CharacterBattleController.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\004 - Scriptable Objects\000 - Story Panels\StoryPanelData.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CombatCore.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CombatController.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\ChoiceButtonHandler.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CharacterCombatCore.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\CharacterBattleController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ReadOnlyAttribute\README.txt" />
@@ -818,8 +818,8 @@
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
@@ -841,6 +841,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
@@ -898,9 +901,6 @@
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

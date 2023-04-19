@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESTART
+  m_text: NEW GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   OriginalBottomPanel: {fileID: 0}
   OriginalTopPanel: {fileID: 0}
   TopPanelConstant: 4.8
-  startingPanelMoveSpeed: 1
+  startingPanelMoveSpeed: 0.75
   panelMoveSpeed: 0
   AllQuestions:
   - {fileID: 11400000, guid: fc80e9e6141cd8744871688d24f14c3a, type: 2}
@@ -1621,10 +1621,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5037ea44dab72d48925bb9ede49b34a, type: 2}
   - {fileID: 11400000, guid: 4ed5fb201610f0d4a9dd42270034266a, type: 2}
   - {fileID: 11400000, guid: 860f893cdf50da747a50aa56f11e7b54, type: 2}
-  - {fileID: 11400000, guid: 76f91297574c9ad4299b0e5d0fe045d8, type: 2}
-  - {fileID: 11400000, guid: 262e0145903fbb543912304e940ade08, type: 2}
-  - {fileID: 11400000, guid: a0e8d830cbdb4c248a089954bec6a80b, type: 2}
-  - {fileID: 11400000, guid: a2cf69769a6bed6469f3392d03019a16, type: 2}
   GasAnswers:
   - {fileID: 776907569}
   - {fileID: 937812106}

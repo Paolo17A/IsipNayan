@@ -15,7 +15,7 @@ D:/Project Files/IsipNayan
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60116
+52946
 Successfully changed project path to: D:/Project Files/IsipNayan
 D:/Project Files/IsipNayan
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Project Files/IsipNayan
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 112.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 136.59 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.14f1 (eee1884e7226)
 [Subsystems] Discovering subsystems at path D:/Program Files/Unity/2021.3.14f1/Editor/Data/Resources/UnitySubsystems
@@ -63,7 +63,7 @@ Initialize mono
 Mono path[0] = 'D:/Program Files/Unity/2021.3.14f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Program Files/Unity/2021.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Program Files/Unity/2021.3.14f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56936
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56624
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Program Files/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
@@ -71,7 +71,7 @@ Register platform support module: D:/Program Files/Unity/2021.3.14f1/Editor/Data
 Register platform support module: D:/Program Files/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/Program Files/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: D:/Program Files/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.607550 seconds.
+Registered in 0.006002 seconds.
 Native extension for UWP target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -79,38 +79,365 @@ Native extension for WindowsStandalone target not found
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 106.77 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 107.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.205 seconds
+- Completed reload, in  0.676 seconds
 Domain Reload Profiling:
-	ReloadAssembly (4205ms)
-		BeginReloadAssembly (2650ms)
+	ReloadAssembly (676ms)
+		BeginReloadAssembly (70ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (854ms)
-			LoadAssemblies (2673ms)
+		EndReloadAssembly (496ms)
+			LoadAssemblies (70ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (347ms)
+			SetupTypeCache (109ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (409ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (308ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (158ms)
+				InitializePlatformSupportModulesInManaged (61ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (107ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (97ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
+				ProcessInitializeOnLoadAttributes (95ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007630 seconds.
-Android Extension - Scanning For ADB Devices 4676 ms
+Registered in 0.007330 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Project Files\IsipNayan\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Project Files\IsipNayan\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 109.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.710 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1711ms)
+		BeginReloadAssembly (209ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (129ms)
+		EndReloadAssembly (1378ms)
+			LoadAssemblies (93ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (343ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (822ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (110ms)
+				BeforeProcessingInitializeOnLoad (122ms)
+				ProcessInitializeOnLoadAttributes (479ms)
+				ProcessInitializeOnLoadMethodAttributes (85ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.38 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5408 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 54 unused Assets / (0.8 MB). Loaded Objects now: 5858.
+Memory consumption went from 218.1 MB to 217.3 MB.
+Total: 4.458000 ms (FindLiveObjects: 0.581700 ms CreateObjectMapping: 0.566300 ms MarkObjects: 2.943800 ms  DeleteObjects: 0.365400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 392363.716444 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/ArrowController.controller
+  artifactKey: Guid(8a1513fb538766542bf08ff7377bcb53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/ArrowController.controller using Guid(8a1513fb538766542bf08ff7377bcb53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e400deeb5267feb58bd5740351186532') in 0.053267 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.029718 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/13.png
+  artifactKey: Guid(55aec3a15f6e53b49a26a1e205811664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/13.png using Guid(55aec3a15f6e53b49a26a1e205811664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9cf7c7ed465a550251190b53f98e9c9') in 0.118466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010467 seconds.
+  path: Assets/001 - IsipNayan/001 - Scripts/002 - MainMenu/MainMenuController.cs
+  artifactKey: Guid(8919a8570065acb418b91e795e47efb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/001 - Scripts/002 - MainMenu/MainMenuController.cs using Guid(8919a8570065acb418b91e795e47efb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d8a11a78ce82e06a118cf3fcdbbf3d5') in 0.009617 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002101 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/12.png
+  artifactKey: Guid(2d31a198e8a2cca439aaa943e79b3be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/12.png using Guid(2d31a198e8a2cca439aaa943e79b3be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d7a14cdb91bf99367911b1664b2e4ff') in 0.026465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Hit
+  artifactKey: Guid(42c7e782765b74f45959582d337ab99e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Hit using Guid(42c7e782765b74f45959582d337ab99e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48b13c2c842e08c789f1493bb29afa9c') in 0.005324 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.023899 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/DefenseArrowController.controller
+  artifactKey: Guid(eaa2c9d8613c9754d80370824381165e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/DefenseArrowController.controller using Guid(eaa2c9d8613c9754d80370824381165e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28d0630a23038184d51baa44de784fae') in 0.006267 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.008723 seconds.
+  path: Assets/001 - IsipNayan/001 - Scripts/006 - Combat/CombatCore.cs
+  artifactKey: Guid(b4c0eda7560151246af6080049b49fca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/001 - Scripts/006 - Combat/CombatCore.cs using Guid(b4c0eda7560151246af6080049b49fca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcd39d8343ccb2b6baf9e81171580007') in 0.006059 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Idle
+  artifactKey: Guid(9c01519a3f0bc9f428cf4e37ddbaca95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Idle using Guid(9c01519a3f0bc9f428cf4e37ddbaca95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30feb0ecfa36d6e2ca6a3e2937b2d7cf') in 0.004968 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.074796 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/6.png
+  artifactKey: Guid(6a9c84ee40d1d5440a3a46e07edd8138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/6.png using Guid(6a9c84ee40d1d5440a3a46e07edd8138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a7ac1a74c32bad8c337977b25641f0') in 0.051640 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.287358 seconds.
+  path: Assets/001 - IsipNayan/001 - Scripts/004 - Scriptable Objects/001 - Player Data/PlayerData.cs
+  artifactKey: Guid(a9d8f0159d4d4214cb9dfc906d708691) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/001 - Scripts/004 - Scriptable Objects/001 - Player Data/PlayerData.cs using Guid(a9d8f0159d4d4214cb9dfc906d708691) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cff19aa3530f5598945ec126657385c9') in 0.005577 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.009516 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/5.png
+  artifactKey: Guid(2d03da6ba7c1e074eb2855993a1cd350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/5.png using Guid(2d03da6ba7c1e074eb2855993a1cd350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edadb2fe928ecedc4aef6613c8c75316') in 0.047915 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.046117 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/006 - Defense
+  artifactKey: Guid(a529257ee1b56124c8336913b36c4a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/006 - Defense using Guid(a529257ee1b56124c8336913b36c4a32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87d5faabc514ede0a56f4d38e9ed9aae') in 0.005491 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.033072 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/15.png
+  artifactKey: Guid(6658399369a8def458fe27022f9f5acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/15.png using Guid(6658399369a8def458fe27022f9f5acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '447a48d4425f5554d268071e3cf4b087') in 0.025437 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.071843 seconds.
+  path: Assets/000 - URP/Settings/Scenes/URP2DSceneTemplate.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings/Scenes/URP2DSceneTemplate.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10323ef81d94c32dc49a2bd6706e46d8') in 0.005750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.141310 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory/000 - Dropped Rewards
+  artifactKey: Guid(8d31b54cdb3028947a76ef99ce6bb89e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory/000 - Dropped Rewards using Guid(8d31b54cdb3028947a76ef99ce6bb89e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20314776040a46aac7dadf04ab735e4e') in 0.005785 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010263 seconds.
+  path: Assets/001 - IsipNayan/000 - Scenes/CombatScene.unity
+  artifactKey: Guid(0360b8716a1c82945b0ad6d781d893d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/000 - Scenes/CombatScene.unity using Guid(0360b8716a1c82945b0ad6d781d893d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b97776e27d4230265322e18342198013') in 0.005056 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.013876 seconds.
+  path: Assets/001 - IsipNayan/000 - Scenes/PersistentScene.unity
+  artifactKey: Guid(678b6415f074a4643b165c410e97e73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/000 - Scenes/PersistentScene.unity using Guid(678b6415f074a4643b165c410e97e73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9794bacea360a52bdf1dedf15ecca333') in 0.005239 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.094546 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/1.png
+  artifactKey: Guid(a0d779d74e484a0458d1ca7463fd4d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/1.png using Guid(a0d779d74e484a0458d1ca7463fd4d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9db21579d752db67d5c8e3dfdf250d20') in 0.043569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.059752 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/003 - Die
+  artifactKey: Guid(142a3cc58593ac0459d6f605856ab03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/003 - Die using Guid(142a3cc58593ac0459d6f605856ab03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1250c708ef84a331c75a334ecb1d411c') in 0.005328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.185647 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory
+  artifactKey: Guid(b1435f3af842b6a4da7d6a6f7d802632) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory using Guid(b1435f3af842b6a4da7d6a6f7d802632) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0080703bb05456da0fcdd07293fd3aa7') in 0.005464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.090873 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/005 - Offense/ArcherOffense.anim
+  artifactKey: Guid(c6a007c722da64549a44bbeaa08831ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/005 - Offense/ArcherOffense.anim using Guid(c6a007c722da64549a44bbeaa08831ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b1ea19564829725d0b4621990ff51b2') in 0.007111 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.087373 seconds.
+  path: Assets/000 - URP/Settings/Renderer2D.asset
+  artifactKey: Guid(424799608f7334c24bf367e4bbfa7f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings/Renderer2D.asset using Guid(424799608f7334c24bf367e4bbfa7f9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '247e036f149eff6b0c2249360a353b23') in 0.007040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.091106 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '460b33da9a8dbd3c0c7fa1aee9254b58') in 0.235391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.283889 seconds.
+  path: Assets/001 - IsipNayan/001 - Scripts/002 - MainMenu/MainMenuCore.cs
+  artifactKey: Guid(e74c53d983fc99141a50f9f0e8bc783a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/001 - Scripts/002 - MainMenu/MainMenuCore.cs using Guid(e74c53d983fc99141a50f9f0e8bc783a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2363f5399118e2f5266c2a44795a0eb') in 0.006259 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.026672 seconds.
+  path: Assets/000 - URP/Settings/Lit2DSceneTemplate.scenetemplate
+  artifactKey: Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings/Lit2DSceneTemplate.scenetemplate using Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ca8933c12b6098a5df52859f6839372') in 0.080499 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.053680 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles
+  artifactKey: Guid(7ccca64103b528e44bfca60914799e89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles using Guid(7ccca64103b528e44bfca60914799e89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cc70857b263a0d1523164bf485abeca') in 0.005203 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.237510 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/14.png
+  artifactKey: Guid(f0999c4807d0ad4478182addb50618a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/14.png using Guid(f0999c4807d0ad4478182addb50618a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ac133d6eabf5e2be8d61a8615a35eb5') in 0.026214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.243983 seconds.
+  path: Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset
+  artifactKey: Guid(ed3b89f2ea4c11047ac5b38c34f23a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset using Guid(ed3b89f2ea4c11047ac5b38c34f23a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ccf06dfed511261cdf773b81117fbe8') in 0.005956 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.039395 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory/000 - Dropped Rewards/000 - Knight
+  artifactKey: Guid(0ed3fb1655ca4384e961226ce8a24d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/003 - UI/000 - Victory/000 - Dropped Rewards/000 - Knight using Guid(0ed3fb1655ca4384e961226ce8a24d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20a53d6911bf311482d026df114d1efb') in 0.005327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.240869 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/16.png
+  artifactKey: Guid(324266f145ccc1d489719db9821aac34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/001 - Racecar/16.png using Guid(324266f145ccc1d489719db9821aac34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea3ffb47cddd6ce7702c841f1a3e7f2c') in 0.025480 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.123163 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/OffensiveArrow.anim
+  artifactKey: Guid(97f5a67d1952add47adbd2253f3177cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/OffensiveArrow.anim using Guid(97f5a67d1952add47adbd2253f3177cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00206322e8affe6420df3815028ee2ff') in 0.006228 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.158784 seconds.
+  path: Assets/001 - IsipNayan/000 - Scenes/RacecarScene.unity
+  artifactKey: Guid(f8a5ac700b85a1c46bf93d7289a8467b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/000 - Scenes/RacecarScene.unity using Guid(f8a5ac700b85a1c46bf93d7289a8467b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d36ceb539c4eed7558df672275cf645') in 0.005182 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.317089 seconds.
+  path: Assets/000 - URP/Settings/UniversalRP.asset
+  artifactKey: Guid(681886c5eb7344803b6206f758bf0b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings/UniversalRP.asset using Guid(681886c5eb7344803b6206f758bf0b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '361bc3d5f13dcf5e2215084dfc2b45ff') in 0.005901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.013230 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death
+  artifactKey: Guid(9b5fb702d59b2184f97213502007668e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death using Guid(9b5fb702d59b2184f97213502007668e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b8aead9a36612eec9eeb2f56adc2409') in 0.005243 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.129241 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/005 - Offense
+  artifactKey: Guid(f7098261c636ac04c82d2d8bdac6b3db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/005 - Offense using Guid(f7098261c636ac04c82d2d8bdac6b3db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c1a725326b00a0bcb17fdbbc6aa0e24') in 0.005301 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.321268 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/3.png
+  artifactKey: Guid(f9ea3ba10e3f51a4aa6aede312515b2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/3.png using Guid(f9ea3ba10e3f51a4aa6aede312515b2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc4bbc08c7b9bec9fb5dae3977d727be') in 0.043841 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/000 - URP/Settings
+  artifactKey: Guid(0220aab0833d04faeb927d84ca6cc40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings using Guid(0220aab0833d04faeb927d84ca6cc40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd681da83228de6eb57118ec3dd4db8fe') in 0.005257 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.019921 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/DefensiveArrow.anim
+  artifactKey: Guid(b113b1b27a58d824999692dfa199202c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/DefensiveArrow.anim using Guid(b113b1b27a58d824999692dfa199202c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb70adf5a2e993939979e4580cf28a52') in 0.005959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.062259 seconds.
+  path: Assets/001 - IsipNayan/000 - Scenes/MainMenuScene.unity
+  artifactKey: Guid(80c74ee09489a7f4d965300ef3a1fd98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/000 - Scenes/MainMenuScene.unity using Guid(80c74ee09489a7f4d965300ef3a1fd98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40c15c416f8112504645483b0749526f') in 0.005151 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.018571 seconds.
+  path: Assets/PlayFabSDK/Shared/Public/Resources/PlayFabSharedSettings.asset
+  artifactKey: Guid(698b2db098268c640929a7b8090a31eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayFabSDK/Shared/Public/Resources/PlayFabSharedSettings.asset using Guid(698b2db098268c640929a7b8090a31eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdb1fb0b9810fdf74ab9b587203ccf8f') in 0.006026 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.067347 seconds.
+  path: Assets/000 - URP/Settings/Scenes
+  artifactKey: Guid(d574b2fb4661c408f80aa76c0182931f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/000 - URP/Settings/Scenes using Guid(d574b2fb4661c408f80aa76c0182931f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ab1b32ea7a284f57957d4fc5c5dea6b') in 0.005629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.039268 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/006 - Defense/ArcherDefense.anim
+  artifactKey: Guid(b70fde47a12a1ba4093259e34d0b300d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/006 - Defense/ArcherDefense.anim using Guid(b70fde47a12a1ba4093259e34d0b300d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5108d61414d54b795901ab6571b3c2c') in 0.006026 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.035072 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/OffenseArrowController.controller
+  artifactKey: Guid(9a16dae4252a15847bbf5bd4e746be36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/001 - Archer/004 - Projectiles/OffenseArrowController.controller using Guid(9a16dae4252a15847bbf5bd4e746be36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '505c23b82eb494e56dfcdbdfe722d1b1') in 0.006506 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010062 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/2.png
+  artifactKey: Guid(cec8f879547961d4e809c164a169b821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/2.png using Guid(cec8f879547961d4e809c164a169b821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5545369b7b608d75abfbecf0654c4d3b') in 0.041941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.029062 seconds.
+  path: Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/4.png
+  artifactKey: Guid(1c7c1c6dff864974394d5e3f37ba4999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001 - IsipNayan/002 - Sprites/002 - Combat/002 - Slime/Death/4.png using Guid(1c7c1c6dff864974394d5e3f37ba4999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c772fce5a8f89bc56c3c5b33327c6d98') in 0.043100 seconds 

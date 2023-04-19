@@ -209,6 +209,13 @@ public class MainMenuCore : MonoBehaviour
     #endregion
 
     #region LOGIN
+    public void AutoLogIn()
+    {
+        LoginEmailTMPInput.text = PlayerPrefs.GetString("Email");
+        LoginPasswordTMPInput.text = PlayerPrefs.GetString("Password");
+        LoginUser();
+    }    
+
     public void LoginUser()
     {
         if (LoginEmailTMPInput.text == "" || LoginPasswordTMPInput.text == "")
@@ -227,7 +234,6 @@ public class MainMenuCore : MonoBehaviour
 
         if (GameManager.Instance.DebugMode)
         {
-            //PlayerData.Username = Login.text;
             PlayerData.EmailAddress = LoginEmailTMPInput.text;
             ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
             ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
@@ -250,8 +256,9 @@ public class MainMenuCore : MonoBehaviour
             resultCallback =>
             {
                 failedCallbackCounter = 0;
-
-                PlayerData.PlayFabID = resultCallback.PlayFabId;
+                PlayerPrefs.SetString("PlayFabID", resultCallback.PlayFabId);
+                PlayerPrefs.SetString("Password", LoginPasswordTMPInput.text);
+                PlayerData.PlayFabID = PlayerPrefs.GetString("PlayFabID");
                 GetAccountInfoPlayFab();
             },
             errorCallback =>
@@ -270,9 +277,10 @@ public class MainMenuCore : MonoBehaviour
             resultCallback =>
             {
                 failedCallbackCounter = 0;
-
-                PlayerData.Username = resultCallback.AccountInfo.Username;
-                PlayerData.EmailAddress = LoginEmailTMPInput.text;
+                PlayerPrefs.SetString("Username", resultCallback.AccountInfo.Username);
+                PlayerData.Username = PlayerPrefs.GetString("Username");
+                PlayerPrefs.SetString("Email", LoginEmailTMPInput.text);
+                PlayerData.EmailAddress = PlayerPrefs.GetString("Email");
                 ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
                 ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
                 GetUserDataPlayFab();
@@ -453,6 +461,11 @@ public class MainMenuCore : MonoBehaviour
     {
         GameManager.Instance.SceneController.CurrentScene = "RacecarScene";
     }
+
+    public void OpenCombatScene()
+    {
+        //GameManager.Instance.SceneController.CurrentScene = "CombatScene";
+    }
     #endregion
 
     #region LOG-OUT
@@ -460,6 +473,7 @@ public class MainMenuCore : MonoBehaviour
     {  
         if(!GameManager.Instance.DebugMode)
             PlayFabClientAPI.ForgetAllCredentials();
+        PlayerPrefs.DeleteAll();
         PlayerData.ResetPlayerData();
         HideGameSelectPanel();
         CurrentMainMenuState = MainMenuStates.LOGIN;

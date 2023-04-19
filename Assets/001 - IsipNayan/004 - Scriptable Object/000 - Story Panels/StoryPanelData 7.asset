@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StoryPanelData 7
   m_EditorClassIdentifier: 
   <StorySprite>k__BackingField: {fileID: 21300000, guid: 2b672b7305dd21e43af93d22e454b503, type: 3}
-  <StoryText>k__BackingField: Halfway through her review, she suddenly falls asleep
+  <StoryText>k__BackingField: Halfway through her review, she suddenly falls asleep.

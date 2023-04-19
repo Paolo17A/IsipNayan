@@ -20,10 +20,14 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.SceneController.LastScene == "RacecarScene" || GameManager.Instance.SceneController.LastScene == "QuizScene")
+        if (GameManager.Instance.SceneController.LastScene == "RacecarScene" || GameManager.Instance.SceneController.LastScene == "CombatScene") 
             MainMenuCore.CurrentMainMenuState = MainMenuCore.MainMenuStates.GAMESELECT;
         else
+        {
             MainMenuCore.CurrentMainMenuState = MainMenuCore.MainMenuStates.LOGIN;
+            if (PlayerPrefs.HasKey("Email") && PlayerPrefs.HasKey("Password"))
+                MainMenuCore.AutoLogIn();
+        }
     }
 
     private void MainMenuStateChange(object sender, EventArgs e)
