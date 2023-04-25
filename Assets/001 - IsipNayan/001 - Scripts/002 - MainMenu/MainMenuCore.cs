@@ -153,7 +153,7 @@ public class MainMenuCore : MonoBehaviour
     {
         ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
         ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
-        foreach (Transform child in HistoryContainer)
+        foreach (Transform child in HistoryContainer.transform)
             Destroy(child.gameObject);
         HistoryDataHandler historyInstance;
         foreach (PlayerData.GameHistory history in PlayerData.PlayerHistory)
@@ -464,7 +464,7 @@ public class MainMenuCore : MonoBehaviour
 
     public void OpenCombatScene()
     {
-        //GameManager.Instance.SceneController.CurrentScene = "CombatScene";
+        GameManager.Instance.SceneController.CurrentScene = "CombatScene";
     }
     #endregion
 

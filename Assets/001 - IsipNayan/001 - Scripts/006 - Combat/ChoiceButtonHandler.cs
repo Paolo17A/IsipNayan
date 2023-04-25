@@ -15,7 +15,7 @@ public class ChoiceButtonHandler : MonoBehaviour
 
     public void AssignAnswer(string answer)
     {
-        ChoiceTMP.text = int.Parse(answer).ToString("n0");
+        ChoiceTMP.text = answer;
     }
 
     public void ProcessAnswer()

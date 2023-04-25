@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db49eeaf149af914d99235b5bfcc2cb8, type: 3}
   m_Name: QuestionData 2
   m_EditorClassIdentifier: 
-  Question: 561 X 7 =
+  Question: '[100 100 100 100 100]'
+  MultiplicationQuestion:
+  - multipilicand: 100
+    multiplier: 5
   Choices:
-  - 3927
-  - 3517
-  - 3767
-  - 4477
-  Answer: 3927
+  - 300
+  - 7,000
+  - 500
+  - 50
+  Answer: 500

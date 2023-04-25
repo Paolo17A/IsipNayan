@@ -20,7 +20,10 @@ public class HistoryDataHandler : MonoBehaviour
     public void InitializeThisHistory(PlayerData.GameHistory gameHistory)
     {
         if(gameHistory.gameType == PlayerData.GameType.RACECAR)
+        {
             GameImage.sprite = RacecarSprite;
+            GameImage.transform.localScale = new Vector3(2, 2, 2);
+        }
         else if (gameHistory.gameType == PlayerData.GameType.QUIZ)
             GameImage.sprite = QuizSprite;
 

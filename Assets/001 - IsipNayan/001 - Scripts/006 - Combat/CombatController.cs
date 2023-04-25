@@ -57,7 +57,7 @@ public class CombatController : MonoBehaviour
     {
         if (CombatCore.CurrentCombatState == CombatCore.CombatStates.COUNTDOWN)
             CombatCore.ReduceCountdownTimer();
-        else if (CombatCore.CurrentCombatState == CombatCore.CombatStates.TIMER)
-            CombatCore.DecreaseTimer();
+        /*else if (CombatCore.CurrentCombatState == CombatCore.CombatStates.TIMER)
+            CombatCore.DecreaseTimer();*/
     }
 }

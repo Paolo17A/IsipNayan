@@ -63,6 +63,7 @@ public class CombatCore : MonoBehaviour
     [Header("QUESTION")]
     [SerializeField] private List<QuestionData> AllQuestions;
     [SerializeField] private TextMeshProUGUI QuestionTMP;
+    [SerializeField] private List<MultiplicationHandler> MultiplicationHandlers;
     [SerializeField] private List<ChoiceButtonHandler> ChoiceButtons;
     [SerializeField][ReadOnly] private int CurrentQuestionIndex;
 
@@ -163,15 +164,30 @@ public class CombatCore : MonoBehaviour
     #region QUESTIONS
     private void ToggleQuestionObjects(bool _bool)
     {
-        QuestionTMP.gameObject.SetActive(_bool);
+        //QuestionTMP.gameObject.SetActive(_bool);
         foreach (ChoiceButtonHandler choice in ChoiceButtons)
             choice.gameObject.SetActive(_bool);
         TimerTMP.gameObject.SetActive(_bool);
+        foreach(MultiplicationHandler mult in MultiplicationHandlers)
+            mult.gameObject.SetActive(_bool);
     }
 
     private void DisplayCurrentQuestion()
     {
         ToggleQuestionObjects(true);
+
+        for(int i = 0; i < MultiplicationHandlers.Count; i++)
+        {
+            if(i < AllQuestions[CurrentQuestionIndex].MultiplicationQuestion.Count)
+            {
+                MultiplicationHandlers[i].gameObject.SetActive(true);
+                MultiplicationHandlers[i].DisplayProperMultiplicands(AllQuestions[CurrentQuestionIndex].MultiplicationQuestion[i].multipilicand, AllQuestions[CurrentQuestionIndex].MultiplicationQuestion[i].multiplier);
+            }
+            else
+                MultiplicationHandlers[i].gameObject.SetActive(false);
+        }
+
+
         QuestionTMP.text = AllQuestions[CurrentQuestionIndex].Question;
         Shuffle(AllQuestions[CurrentQuestionIndex].Choices);
         for (int i = 0; i < ChoiceButtons.Count; i++)
