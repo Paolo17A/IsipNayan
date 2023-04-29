@@ -90,6 +90,7 @@
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\005 - Racecar\DriverCore.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\Multiplication\Multiplicand.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
     <Compile Include="Assets\ReadOnlyAttribute\Scripts\ReadOnlyAttribute.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\005 - Racecar\RacecarController.cs" />
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\002 - MainMenu\MainMenuCore.cs" />
+    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\Multiplication\MultiplicationHandler.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
@@ -111,8 +113,6 @@
     <Compile Include="Assets\001 - IsipNayan\001 - Scripts\004 - Scriptable Objects\000 - Story Panels\StoryPanelData.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\Multiplication\MultiplicationHandler.cs" />
-    <Compile Include="Assets\001 - IsipNayan\001 - Scripts\006 - Combat\Multiplication\Multiplicand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ReadOnlyAttribute\README.txt" />

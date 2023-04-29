@@ -196,7 +196,6 @@ public class RacecarCore : MonoBehaviour
     }
     #endregion
 
-
     #region PAUSE
     public void PauseGame()
     {
@@ -212,8 +211,18 @@ public class RacecarCore : MonoBehaviour
 
     public void RestartGame()
     {
-        CurrentGameplayState = GameplayStates.COUNTDOWN;
-        ResumeGame();
+        PlayerData.AddGameHistory(PlayerData.GameType.RACECAR, GameManager.Result.DEFEAT, DriverCore.CurrentScore);
+
+        if (GameManager.Instance.DebugMode)
+        {
+            CurrentGameplayState = GameplayStates.COUNTDOWN;
+            ResumeGame();
+        }
+        else
+        {
+            LoadingPanel.SetActive(true);
+            UpdateGameHistoryPlayFab(true);
+        }
     }
 
     public void ReturnToMainMenu()
@@ -231,7 +240,7 @@ public class RacecarCore : MonoBehaviour
         if(!GameManager.Instance.DebugMode)
         {
             LoadingPanel.SetActive(true);
-            UpdateGameHistoryPlayFab();
+            UpdateGameHistoryPlayFab(false);
         }
     }
 
@@ -243,27 +252,34 @@ public class RacecarCore : MonoBehaviour
         if (!GameManager.Instance.DebugMode)
         {
             LoadingPanel.SetActive(true);
-            UpdateGameHistoryPlayFab();
+            UpdateGameHistoryPlayFab(false);
         }
     }
 
-    private void UpdateGameHistoryPlayFab()
+    private void UpdateGameHistoryPlayFab(bool restarting)
     {
         UpdateUserDataRequest updateUserData = new UpdateUserDataRequest();
-        updateUserData.Data = new Dictionary<string, string>();
-        updateUserData.Data.Add("GameHistory", JsonConvert.SerializeObject(PlayerData.PlayerHistory));
+        updateUserData.Data = new Dictionary<string, string>
+        {
+            { "GameHistory", JsonConvert.SerializeObject(PlayerData.PlayerHistory) }
+        };
 
         PlayFabClientAPI.UpdateUserData(updateUserData, 
             resultCallback =>
             {
                 failedCallbackCounter = 0;
                 LoadingPanel.SetActive(false);
-                Debug.Log("game history updated online");
+
+                if(restarting)
+                {
+                    CurrentGameplayState = GameplayStates.COUNTDOWN;
+                    ResumeGame();
+                }
             },
             errorCallback =>
             {
                 ErrorCallback(errorCallback.Error,
-                    UpdateGameHistoryPlayFab,
+                    () => UpdateGameHistoryPlayFab(restarting),
                     () => DisplayErrorPanel(errorCallback.ErrorMessage));
             });
     }

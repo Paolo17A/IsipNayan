@@ -227,8 +227,18 @@ public class CombatCore : MonoBehaviour
 
     public void RestartGame()
     {
-        ResumeGame();
-        CurrentCombatState = CombatStates.COUNTDOWN;
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, GameManager.Result.DEFEAT, EnemyCharacter.GetDamageDealt());
+
+        if (GameManager.Instance.DebugMode)
+        {
+            CurrentCombatState = CombatStates.COUNTDOWN;
+            ResumeGame();
+        }
+        else
+        {
+            LoadingPanel.SetActive(true);
+            UpdateGameHistoryPlayFab(true);
+        }
     }
 
     public void ReturnToMainMenu()
@@ -243,17 +253,17 @@ public class CombatCore : MonoBehaviour
     {
         VictoryPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
-        UpdateGameHistoryPlayFab();
+        UpdateGameHistoryPlayFab(false);
     }
 
     public void ProcessDefeat()
     {
         DefeatPanel.SetActive(true);
         PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
-        UpdateGameHistoryPlayFab();
+        UpdateGameHistoryPlayFab(false);
     }
 
-    private void UpdateGameHistoryPlayFab()
+    private void UpdateGameHistoryPlayFab(bool restarting)
     {
         UpdateUserDataRequest updateUserData = new UpdateUserDataRequest();
         updateUserData.Data = new Dictionary<string, string>();
@@ -264,12 +274,17 @@ public class CombatCore : MonoBehaviour
             {
                 failedCallbackCounter = 0;
                 LoadingPanel.SetActive(false);
-                Debug.Log("game history updated online");
+
+                if (restarting)
+                {
+                    CurrentCombatState = CombatStates.COUNTDOWN;
+                    ResumeGame();
+                }
             },
             errorCallback =>
             {
                 ErrorCallback(errorCallback.Error,
-                    UpdateGameHistoryPlayFab,
+                    () => UpdateGameHistoryPlayFab(restarting),
                     () => DisplayErrorPanel(errorCallback.ErrorMessage));
             });
     }
