@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 7
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: 2b672b7305dd21e43af93d22e454b503, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 007042c334da414478a4f409727ec0c7, type: 3}
   <StoryText>k__BackingField: Halfway through her review, she suddenly falls asleep.

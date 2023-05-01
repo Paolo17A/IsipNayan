@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 8
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: ea908810317b57c429ca17eb44b64960, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 0500bc40939160746a235989479b0ae8, type: 3}
   <StoryText>k__BackingField: She starts wandering in dreamland and is brought to
     iSIPNAYAN, a place where mathematics can be easily learned.

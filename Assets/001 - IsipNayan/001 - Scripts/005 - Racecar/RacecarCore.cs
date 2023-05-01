@@ -156,15 +156,23 @@ public class RacecarCore : MonoBehaviour
             if (WillResetQuestion)
             {
                 WillResetQuestion = false;
-                if(CurrentQuestionIndex == AllQuestions.Count - 1)
+                CurrentQuestionIndex++;
+                if(CurrentQuestionIndex == AllQuestions.Count)
+                {
+                    FinalResult = GameManager.Result.VICTORY;
+                    CurrentGameplayState = GameplayStates.GAMEOVER;
+                }
+                /*(if(CurrentQuestionIndex == AllQuestions.Count - 1)
                 {
                     Shuffle(AllQuestions);
                     CurrentQuestionIndex = 0;
                 }
                 else
+                {
                     CurrentQuestionIndex++;
-
-                DisplayNewQuestion();
+                }*/
+                else
+                    DisplayNewQuestion();
             }
         }
     }

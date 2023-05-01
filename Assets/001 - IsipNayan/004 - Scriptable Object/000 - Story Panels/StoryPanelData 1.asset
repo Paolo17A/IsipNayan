@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 1
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: 98057fd3b556f6542805941de0bc1aa9, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 4f1f3f681b2f93c449a6df529bbd1948, type: 3}
   <StoryText>k__BackingField: Naya is a fourth-grade student at BRRS Elementary School.

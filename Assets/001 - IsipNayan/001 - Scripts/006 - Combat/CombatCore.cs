@@ -65,7 +65,7 @@ public class CombatCore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI QuestionTMP;
     [SerializeField] private List<MultiplicationHandler> MultiplicationHandlers;
     [SerializeField] private List<ChoiceButtonHandler> ChoiceButtons;
-    [SerializeField][ReadOnly] private int CurrentQuestionIndex;
+    [ReadOnly] public int CurrentQuestionIndex;
 
     [Header("CHARACTERS")]
     public CharacterCombatCore PlayerCharacter;
@@ -78,6 +78,7 @@ public class CombatCore : MonoBehaviour
     [ReadOnly] public GameManager.Result FinalResult;
     [SerializeField] private GameObject VictoryPanel;
     [SerializeField] private GameObject DefeatPanel;
+    [ReadOnly] public bool EnemyWillRunAway;
 
     [Header("LOADING")]
     [SerializeField] private GameObject LoadingPanel;
@@ -108,6 +109,7 @@ public class CombatCore : MonoBehaviour
         #region CHARACTERS
         PlayerCharacter.InitializeCharacter();
         EnemyCharacter.InitializeCharacter();
+        EnemyWillRunAway = false;
         #endregion
 
         #region GAMEOVER
@@ -205,8 +207,10 @@ public class CombatCore : MonoBehaviour
         CurrentQuestionIndex++;
         if(CurrentQuestionIndex == AllQuestions.Count)
         {
-            CurrentQuestionIndex = 0;
+            EnemyWillRunAway = true;
+            /*CurrentQuestionIndex = 0;
             Shuffle(AllQuestions);
+            EnemyCharacter.CurrentCharacterCombatState = CharacterCombatCore.CharacterCombatState.DYING;*/
         }
         ToggleQuestionObjects(false);
     }

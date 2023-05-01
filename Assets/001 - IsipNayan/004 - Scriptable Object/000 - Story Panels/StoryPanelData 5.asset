@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 5
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: d41ea498271ce8148be6496565604676, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 401120b79f9d06849ab7f2237159d92e, type: 3}
   <StoryText>k__BackingField: Naya doesn't know where to start because reviewing
     eight subjects is too overwhelming.

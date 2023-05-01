@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 3
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: 3d225201e5722f844b15e2f031cbf6cd, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 73dbb015dccf60c4b82562e35cb0af1f, type: 3}
   <StoryText>k__BackingField: After studying for more than six hours at school, she
     went directly home to start her review session for an upcoming examination.

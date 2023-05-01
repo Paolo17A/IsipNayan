@@ -85,11 +85,11 @@ public class DriverCore : MonoBehaviour
         LeanTween.moveLocalY(PopUpResultTMP.gameObject, -820, 0.5f).setOnComplete(() => LeanTween.moveLocalY(PopUpResultTMP.gameObject, -1000, 0.5f).setDelay(1));
         CurrentScore++;
         CurrentScoreTMP.text = "Current Score: " + CurrentScore;
-        if(CurrentScore == 10)
+        /*if(CurrentScore == 10)
         {
             RacecarCore.FinalResult = GameManager.Result.VICTORY;
             RacecarCore.CurrentGameplayState = RacecarCore.GameplayStates.GAMEOVER;
-        }
+        }*/
     }
 
     public void ProcessIncorrectAnswer()

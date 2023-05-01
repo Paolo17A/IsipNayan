@@ -54,6 +54,8 @@ public class CharacterBattleController : MonoBehaviour
                     CharacterCombatCore.ApproachOpponent();
                 else if (CharacterCombatCore.CurrentTravelState == CharacterCombatCore.TravelState.RETURN)
                     CharacterCombatCore.ReturnToOrigin();
+                else if (CharacterCombatCore.CurrentTravelState == CharacterCombatCore.TravelState.FLEE)
+                    CharacterCombatCore.RunAway();
             }
         }
     }

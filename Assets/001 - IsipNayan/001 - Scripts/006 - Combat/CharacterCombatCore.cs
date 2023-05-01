@@ -47,7 +47,7 @@ public class CharacterCombatCore : MonoBehaviour
     //==========================================================================================================
     public enum CharacterType { NONE, PLAYER, ENEMY }
     public enum AttackType { NONE, MELEE, RANGED }
-    public enum TravelState { NONE, APPROACH, RETURN }
+    public enum TravelState { NONE, APPROACH, RETURN, FLEE }
     [SerializeField] private CombatCore CombatCore;
 
     [Header("CHARACTER")]
@@ -64,6 +64,7 @@ public class CharacterCombatCore : MonoBehaviour
 
     [Header("MELEE ONLY: TRAVEL")]
     [ReadOnly] public TravelState CurrentTravelState;
+    [SerializeField] private Vector3 CharacterFleePoint;
 
     [Header("RANGED ONLY: PROJECTILE")]
     [SerializeField] private GameObject Projectile;
@@ -77,6 +78,7 @@ public class CharacterCombatCore : MonoBehaviour
     public void InitializeCharacter()
     {
         CurrentCharacterCombatState = CharacterCombatState.IDLE;
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
         #region HEALTH
         CurrentHealth = MaxHealth;
@@ -89,7 +91,6 @@ public class CharacterCombatCore : MonoBehaviour
             Projectile.transform.position = ProjectileOriginPoint;
             Projectile.SetActive(false);
         }
-        
         #endregion  
     }
     #endregion
@@ -116,7 +117,13 @@ public class CharacterCombatCore : MonoBehaviour
         else
         {
             CurrentCharacterCombatState = CharacterCombatState.IDLE;
-            if((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) || 
+            if(CombatCore.EnemyWillRunAway)
+            {
+                Debug.Log("RUNNING AWAY");
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                CombatCore.CurrentCombatState = CombatCore.CombatStates.ENEMYTURN;
+            }
+            else if((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) || 
                (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED))
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
         }
@@ -157,6 +164,19 @@ public class CharacterCombatCore : MonoBehaviour
             }
             else
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
+        }
+    }
+
+    public void RunAway()
+    {
+        if (Vector2.Distance(transform.position, CharacterFleePoint) > Mathf.Epsilon)
+            transform.position = Vector2.MoveTowards(transform.position, CharacterFleePoint, 7 * Time.deltaTime);
+        else
+        {
+            CurrentTravelState = TravelState.NONE;
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            CombatCore.FinalResult = GameManager.Result.VICTORY;
+            CombatCore.CurrentCombatState = CombatCore.CombatStates.GAMEOVER;
         }
     }
 

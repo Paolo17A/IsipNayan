@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffb59a302e4fb741816d9584d8ed544, type: 3}
   m_Name: StoryPanelData 6
   m_EditorClassIdentifier: 
-  <StorySprite>k__BackingField: {fileID: 21300000, guid: 7e3a65670e956d64c962b77b7b37718c, type: 3}
+  <StorySprite>k__BackingField: {fileID: 21300000, guid: 7394d4cbceb1e6d4a8d13a0e820c9b01, type: 3}
   <StoryText>k__BackingField: Out of the eight subjects, Naya is most concerned about
     Mathematics. It is the subject that she's been struggling with.
