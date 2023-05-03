@@ -19,13 +19,16 @@ public class CombatController : MonoBehaviour
 
     private void Start()
     {
-        CombatCore.CurrentCombatState = CombatCore.CombatStates.COUNTDOWN;
+        CombatCore.CurrentCombatState = CombatCore.CombatStates.TUTORIAL;
     }
 
     private void CombatStateChange(object sender, EventArgs e)
     {
         switch (CombatCore.CurrentCombatState)
         {
+            case CombatCore.CombatStates.TUTORIAL:
+                CombatCore.DisplayTutorialPanel();
+                break;
             case CombatCore.CombatStates.COUNTDOWN:
                 CombatCore.InitializeQuizGame();
                 break;

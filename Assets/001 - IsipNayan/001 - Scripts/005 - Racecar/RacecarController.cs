@@ -16,7 +16,7 @@ public class RacecarController : MonoBehaviour
     private void Start()
     {
         RacecarCore.SetOriginalPanels();
-        RacecarCore.CurrentGameplayState = RacecarCore.GameplayStates.COUNTDOWN;
+        RacecarCore.CurrentGameplayState = RacecarCore.GameplayStates.TUTORIAL;
     }
 
     private void Update()
@@ -31,6 +31,9 @@ public class RacecarController : MonoBehaviour
     {
         switch (RacecarCore.CurrentGameplayState)
         {
+            case RacecarCore.GameplayStates.TUTORIAL:
+                RacecarCore.DisplayTutorialPanel();
+                break;
             case RacecarCore.GameplayStates.COUNTDOWN:
                 RacecarCore.InitializeRacecarGame();
                 break;

@@ -14,6 +14,7 @@ public class RacecarCore : MonoBehaviour
     public enum GameplayStates
     {
         NONE,
+        TUTORIAL,
         COUNTDOWN,
         GAMEPLAY,
         GAMEOVER
@@ -46,6 +47,9 @@ public class RacecarCore : MonoBehaviour
     //=========================================================================================================
     [SerializeField] private DriverCore DriverCore;
     [SerializeField] private PlayerData PlayerData;
+
+    [Header("TUTORIAL VARIABLES")]
+    [SerializeField] private GameObject TutorialPanel;
 
     [Header("COUNTDOWN VARIABLES")]
     [SerializeField] private GameObject CountdownPanel;
@@ -137,6 +141,19 @@ public class RacecarCore : MonoBehaviour
             CountdownPanel.SetActive(false);
             CurrentGameplayState = GameplayStates.GAMEPLAY;
         }
+    }
+    #endregion
+
+    #region TUTORIAL
+    public void DisplayTutorialPanel()
+    {
+        TutorialPanel.SetActive(true);
+    }
+
+    public void ProceedToCountdown()
+    {
+        TutorialPanel.SetActive(false);
+        CurrentGameplayState = GameplayStates.COUNTDOWN;
     }
     #endregion
 

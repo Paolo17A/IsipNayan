@@ -15,6 +15,7 @@ public class CombatCore : MonoBehaviour
     public enum CombatStates
     {
         NONE,
+        TUTORIAL,
         COUNTDOWN,
         TIMER,
         PLAYERTURN,
@@ -49,6 +50,9 @@ public class CombatCore : MonoBehaviour
     //==================================================================================================================
     [SerializeField] private PlayerData PlayerData;
 
+    [Header("TUTORIAL VARIABLES")]
+    [SerializeField] private GameObject TutorialPanel;
+
     [Header("COUNTDOWN VARIABLES")]
     [SerializeField] private GameObject CountdownPanel;
     [SerializeField] private TextMeshProUGUI CountdownTMP;
@@ -57,7 +61,7 @@ public class CombatCore : MonoBehaviour
     [Header("TIMER")]
     [SerializeField] private TextMeshProUGUI TimerTMP;
     [SerializeField] private int MaxTimerValue;
-    [field: SerializeField][field: ReadOnly] public int CurrentTimerValue { get; set; }
+    [ReadOnly] public int CurrentTimerValue;
     [SerializeField][ReadOnly] private float TimerValueLeft;
 
     [Header("QUESTION")]
@@ -133,6 +137,19 @@ public class CombatCore : MonoBehaviour
             CurrentCombatState = CombatStates.TIMER;
 
         }
+    }
+    #endregion
+
+    #region TUTORIAL
+    public void DisplayTutorialPanel()
+    {
+        TutorialPanel.SetActive(true);
+    }
+
+    public void ProceedToCountdown()
+    {
+        TutorialPanel.SetActive(false);
+        CurrentCombatState = CombatStates.COUNTDOWN;
     }
     #endregion
 
