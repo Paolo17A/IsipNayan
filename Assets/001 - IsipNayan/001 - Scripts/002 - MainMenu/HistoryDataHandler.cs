@@ -10,11 +10,17 @@ public class HistoryDataHandler : MonoBehaviour
     [field: Header("HISTORY")]
     [field: SerializeField] public Image GameImage { get; set; }
     [field: SerializeField] public TextMeshProUGUI ResultTMP { get; set; }
+    [field: SerializeField] public Image BadgeImage { get; set; }
     [field: SerializeField] public TextMeshProUGUI ScoreTMP { get; set; }
 
     [Header("GAMES")]
     [SerializeField] private Sprite RacecarSprite;
     [SerializeField] private Sprite QuizSprite;
+
+    [Header("BADGES")]
+    [SerializeField] private Sprite BronzeBadge;
+    [SerializeField] private Sprite SilverBadge;
+    [SerializeField] private Sprite GoldBadge;
     //=========================================================================================================
 
     public void InitializeThisHistory(PlayerData.GameHistory gameHistory)
@@ -29,5 +35,12 @@ public class HistoryDataHandler : MonoBehaviour
 
         ResultTMP.text = gameHistory.gameResult.ToString();
         ScoreTMP.text = gameHistory.gameScore.ToString();
+
+        if(gameHistory.gameScore >=0 && gameHistory.gameScore <= 8)
+            BadgeImage.sprite = BronzeBadge;
+        else if (gameHistory.gameScore >= 9 && gameHistory.gameScore <= 14)
+            BadgeImage.sprite = SilverBadge;
+        else
+            BadgeImage.sprite = GoldBadge;
     }
 }
