@@ -273,15 +273,15 @@ public class CombatCore : MonoBehaviour
     public void ProcessVictory()
     {
         VictoryPanel.SetActive(true);
-        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
-        UpdateGameHistoryPlayFab(false);
+        //PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        //UpdateGameHistoryPlayFab(false);
     }
 
     public void ProcessDefeat()
     {
         DefeatPanel.SetActive(true);
-        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
-        UpdateGameHistoryPlayFab(false);
+        //PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        //UpdateGameHistoryPlayFab(false);
     }
 
     private void UpdateGameHistoryPlayFab(bool restarting)

@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/001 - IsipNayan/000 - Scenes/PersistentScene.unity
     guid: 678b6415f074a4643b165c410e97e73c
   - enabled: 1
-    path: Assets/001 - IsipNayan/000 - Scenes/MainMenuScene.unity
-    guid: 80c74ee09489a7f4d965300ef3a1fd98
-  - enabled: 1
-    path: Assets/001 - IsipNayan/000 - Scenes/RacecarScene.unity
-    guid: f8a5ac700b85a1c46bf93d7289a8467b
-  - enabled: 1
     path: Assets/001 - IsipNayan/000 - Scenes/CombatScene.unity
     guid: 0360b8716a1c82945b0ad6d781d893d2
   m_configObjects: {}
