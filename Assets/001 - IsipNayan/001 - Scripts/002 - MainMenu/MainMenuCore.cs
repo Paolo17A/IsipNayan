@@ -127,7 +127,8 @@ public class MainMenuCore : MonoBehaviour
 
     public void ShowWelcomePanel()
     {
-        WelcomeTMP.text = "Hi " + PlayerData.Username + " welcome to iSIPNAYAN\r\n\r\nA mobile application empoyed with a game-based learning approach that will assist you in learning Mathematics! Here, you will explore different games, have fun and learn all at once! Before that, let's meet Naya through the Storyboard!";
+        //WelcomeTMP.text = "Hi " + PlayerData.Username + " welcome to iSIPNAYAN\r\n\r\nA mobile application empoyed with a game-based learning approach that will assist you in learning Mathematics! Here, you will explore different games, have fun and learn all at once! Before that, let's meet Naya through the Storyboard!";
+        WelcomeTMP.text = PlayerData.Username;
         GameManager.Instance.AnimationsLT.FadePanel(LoginRT, LoginRT, LoginCG, 1, 0, () => { });
         GameManager.Instance.AnimationsLT.FadePanel(WelcomeRT, null, WelcomeCG, 0, 1, () => { });
     }

@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2801558477334559593
 CanvasRenderer:
@@ -68,15 +68,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESULT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6618171266cabad4391d94279354557d, type: 2}
-  m_sharedMaterial: {fileID: 2272289786502144457, guid: 6618171266cabad4391d94279354557d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c993691119df4ff4081b5c8a54884dae, type: 2}
+  m_sharedMaterial: {fileID: -1121739602849680940, guid: c993691119df4ff4081b5c8a54884dae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: aa5cef33577ee6047a53d27873c1141f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -251,7 +251,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 750, y: 100}
+  m_SizeDelta: {x: 950, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2801558478254901893
 MonoBehaviour:
@@ -266,12 +266,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 25
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 0
+  m_Spacing: 75
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -295,11 +295,11 @@ MonoBehaviour:
   <ResultTMP>k__BackingField: {fileID: 2801558477334559592}
   <BadgeImage>k__BackingField: {fileID: 3039477608499322536}
   <ScoreTMP>k__BackingField: {fileID: 2801558479092417239}
-  RacecarSprite: {fileID: 21300000, guid: a374ef8cb202e0643967bec53902cf79, type: 3}
-  QuizSprite: {fileID: 452981624699297504, guid: 1343bace40d79914e8694230fe5084aa, type: 3}
-  BronzeBadge: {fileID: 267822852, guid: caa9f5eccdf864641b06a7c9af594c08, type: 3}
-  SilverBadge: {fileID: -77208667, guid: caa9f5eccdf864641b06a7c9af594c08, type: 3}
-  GoldBadge: {fileID: -1136574815, guid: caa9f5eccdf864641b06a7c9af594c08, type: 3}
+  RacecarSprite: {fileID: 21300000, guid: aa5cef33577ee6047a53d27873c1141f, type: 3}
+  QuizSprite: {fileID: 21300000, guid: acf4407b3a639f849982ea77e14c8776, type: 3}
+  BronzeBadge: {fileID: 21300000, guid: 650aa8a8c52abb4419b5982c3cf319f6, type: 3}
+  SilverBadge: {fileID: 21300000, guid: 0c3dd237520b7a64db909939da7f7ecd, type: 3}
+  GoldBadge: {fileID: 21300000, guid: ca20f5e81012a524b91281853d04f52c, type: 3}
 --- !u!1 &2801558479092417233
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,17 +366,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 15'
+  m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6618171266cabad4391d94279354557d, type: 2}
-  m_sharedMaterial: {fileID: 2272289786502144457, guid: 6618171266cabad4391d94279354557d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c993691119df4ff4081b5c8a54884dae, type: 2}
+  m_sharedMaterial: {fileID: -1121739602849680940, guid: c993691119df4ff4081b5c8a54884dae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -471,7 +471,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 93.75, y: 166.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6901238277089477343
 CanvasRenderer:
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0c3dd237520b7a64db909939da7f7ecd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
