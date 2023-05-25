@@ -15,3 +15,4 @@ MonoBehaviour:
   <StorySprite>k__BackingField: {fileID: 21300000, guid: 401120b79f9d06849ab7f2237159d92e, type: 3}
   <StoryText>k__BackingField: Naya doesn't know where to start because reviewing
     eight subjects is too overwhelming.
+  <StoryClip>k__BackingField: {fileID: 8300000, guid: d59c17b92bf2c4942b57048e208babf2, type: 3}

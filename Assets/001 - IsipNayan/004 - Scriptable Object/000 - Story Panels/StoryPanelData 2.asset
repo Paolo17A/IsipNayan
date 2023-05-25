@@ -15,3 +15,4 @@ MonoBehaviour:
   <StorySprite>k__BackingField: {fileID: 21300000, guid: cc7cbb9c8d88dd14aa1d62e68388caea, type: 3}
   <StoryText>k__BackingField: Her class starts at 7am in the morning and ends at
     12pm in the afternoon.
+  <StoryClip>k__BackingField: {fileID: 8300000, guid: 9b805c5459a288d4db9b86dbfdeaead2, type: 3}

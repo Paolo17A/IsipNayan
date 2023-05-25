@@ -95,6 +95,7 @@ public class MainMenuCore : MonoBehaviour
     [SerializeField] private Button NextPageBtn;
     [SerializeField] private Image StoryImage;
     [SerializeField] private TextMeshProUGUI StoryText;
+    [SerializeField] private AudioSource ThisAudioSource;
 
     [Header("PROFILE")]
     [SerializeField] private TextMeshProUGUI ProfileUsernameTMP;
@@ -103,6 +104,7 @@ public class MainMenuCore : MonoBehaviour
     [SerializeField] private HistoryDataHandler HistoryPrefab;
 
     int failedCallbackCounter;
+    HistoryDataHandler historyInstance;
     //=============================================================================================================
     #endregion
 
@@ -152,11 +154,12 @@ public class MainMenuCore : MonoBehaviour
 
     public void ShowGameSelectPanel()
     {
+        ThisAudioSource.Stop();
         ProfileUsernameTMP.text = "Username: " + PlayerData.Username;
         ProfileEmailTMP.text = "Email Address: " + PlayerData.EmailAddress;
         foreach (Transform child in HistoryContainer.transform)
             Destroy(child.gameObject);
-        HistoryDataHandler historyInstance;
+        
         foreach (PlayerData.GameHistory history in PlayerData.PlayerHistory)
         {
             historyInstance = Instantiate(HistoryPrefab);
@@ -434,6 +437,9 @@ public class MainMenuCore : MonoBehaviour
             PreviousPageBtn.interactable = false;
         else
             PreviousPageBtn.interactable = true;
+
+        ThisAudioSource.Stop();
+        ThisAudioSource.PlayOneShot(StoryPanels[CurrentStoryPageIndex].StoryClip);
     }
 
     public void PreviousStoryPage()

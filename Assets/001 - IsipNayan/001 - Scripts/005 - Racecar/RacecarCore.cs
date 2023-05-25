@@ -200,6 +200,7 @@ public class RacecarCore : MonoBehaviour
     #region QUESTION
     public void DisplayNewQuestion()
     {
+        panelMoveSpeed += 0.1f;
         ToggleGasAnswers(true);
         QuestionTMP.text = AllQuestions[CurrentQuestionIndex].Question;
         Shuffle(AllQuestions[CurrentQuestionIndex].Choices);

@@ -15,3 +15,4 @@ MonoBehaviour:
   <StorySprite>k__BackingField: {fileID: 21300000, guid: 9ff0509de83dfc041af93db618e5556e, type: 3}
   <StoryText>k__BackingField: Naya has eight different subjects to review. These
     are Filipino, English, ESP, MAPEH, MTB, AP, Science, and Mathematics.
+  <StoryClip>k__BackingField: {fileID: 8300000, guid: 63278ae0b7b63ac4f80cb83efa859ac1, type: 3}

@@ -7,4 +7,5 @@ public class StoryPanelData : ScriptableObject
 {
     [field: SerializeField] public Sprite StorySprite { get; set; }
     [field: SerializeField][field: TextArea] public string StoryText { get; set; }
+    [field: SerializeField] public AudioClip StoryClip { get; set; }
 }

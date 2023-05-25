@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <StorySprite>k__BackingField: {fileID: 21300000, guid: 007042c334da414478a4f409727ec0c7, type: 3}
   <StoryText>k__BackingField: Halfway through her review, she suddenly falls asleep.
+  <StoryClip>k__BackingField: {fileID: 8300000, guid: 4d424296a1254d44084a87cd0c347125, type: 3}
