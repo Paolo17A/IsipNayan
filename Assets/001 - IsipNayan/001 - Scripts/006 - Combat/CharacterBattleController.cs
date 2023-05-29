@@ -20,7 +20,8 @@ public class CharacterBattleController : MonoBehaviour
 
     private void CharacterCombatStateChange(object sender, EventArgs e)
     {
-        CharacterCombatCore.anim.SetInteger("index", (int)CharacterCombatCore.CurrentCharacterCombatState);
+        if(CharacterCombatCore.CurrentCharacterCombatState != CharacterCombatCore.CharacterCombatState.DYING)
+            CharacterCombatCore.anim.SetInteger("index", (int)CharacterCombatCore.CurrentCharacterCombatState);
     }
 
     private void Update()
@@ -57,6 +58,8 @@ public class CharacterBattleController : MonoBehaviour
                 else if (CharacterCombatCore.CurrentTravelState == CharacterCombatCore.TravelState.FLEE)
                     CharacterCombatCore.RunAway();
             }
+            else if (CharacterCombatCore.thisAttackType == CharacterCombatCore.AttackType.SORCERER && CharacterCombatCore.CurrentTravelState == CharacterCombatCore.TravelState.FLEE)
+                CharacterCombatCore.RunAway();
         }
     }
 }

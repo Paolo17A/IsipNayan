@@ -46,7 +46,7 @@ public class CharacterCombatCore : MonoBehaviour
     #region VARIABLES
     //==========================================================================================================
     public enum CharacterType { NONE, PLAYER, ENEMY }
-    public enum AttackType { NONE, MELEE, RANGED }
+    public enum AttackType { NONE, MELEE, RANGED, SORCERER }
     public enum TravelState { NONE, APPROACH, RETURN, FLEE }
     [SerializeField] private CombatCore CombatCore;
 
@@ -79,6 +79,7 @@ public class CharacterCombatCore : MonoBehaviour
     {
         CurrentCharacterCombatState = CharacterCombatState.IDLE;
         gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        transform.position = CharacterOriginPoint;
 
         #region HEALTH
         CurrentHealth = MaxHealth;
@@ -105,7 +106,8 @@ public class CharacterCombatCore : MonoBehaviour
         {
             CurrentCharacterCombatState = CharacterCombatState.DYING;
             if ((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) ||
-               (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED))
+               (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED) ||
+               (thisAttackType == AttackType.SORCERER))
             {
                 if (thisCharacterType == CharacterType.PLAYER)
                     CombatCore.FinalResult = GameManager.Result.DEFEAT;
@@ -125,6 +127,8 @@ public class CharacterCombatCore : MonoBehaviour
             }
             else if((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) || 
                (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED))
+                CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
+            else
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
         }
     }
@@ -169,8 +173,14 @@ public class CharacterCombatCore : MonoBehaviour
 
     public void RunAway()
     {
+        //transform.position = Vector2.MoveTowards(transform.position, CharacterFleePoint, 7 * Time.deltaTime);
+
+        Debug.Log("Currently running away");
         if (Vector2.Distance(transform.position, CharacterFleePoint) > Mathf.Epsilon)
+        {
+            Debug.Log("Distance: " + Vector2.Distance(transform.position, CharacterFleePoint));
             transform.position = Vector2.MoveTowards(transform.position, CharacterFleePoint, 7 * Time.deltaTime);
+        }
         else
         {
             CurrentTravelState = TravelState.NONE;

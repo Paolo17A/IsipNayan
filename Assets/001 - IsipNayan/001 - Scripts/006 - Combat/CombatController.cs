@@ -38,7 +38,7 @@ public class CombatController : MonoBehaviour
             case CombatCore.CombatStates.PLAYERTURN:
                 if (CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.MELEE)
                     CombatCore.PlayerCharacter.CurrentTravelState = CharacterCombatCore.TravelState.APPROACH;
-                else if (CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.RANGED)
+                else if (CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.RANGED || CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.SORCERER)
                     CombatCore.PlayerCharacter.CurrentCharacterCombatState = CharacterCombatCore.CharacterCombatState.ATTACKING;
                 break;
             case CombatCore.CombatStates.ENEMYTURN:
@@ -49,7 +49,7 @@ public class CombatController : MonoBehaviour
                     else
                         CombatCore.EnemyCharacter.CurrentTravelState = CharacterCombatCore.TravelState.APPROACH;
                 }
-                else if (CombatCore.EnemyCharacter.thisAttackType == CharacterCombatCore.AttackType.RANGED)
+                else if (CombatCore.EnemyCharacter.thisAttackType == CharacterCombatCore.AttackType.RANGED || CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.SORCERER)
                 {
                     if (CombatCore.EnemyWillRunAway)
                         CombatCore.EnemyCharacter.CurrentTravelState = CharacterCombatCore.TravelState.FLEE;
