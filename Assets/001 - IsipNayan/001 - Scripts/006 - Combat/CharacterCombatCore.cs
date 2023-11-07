@@ -56,6 +56,7 @@ public class CharacterCombatCore : MonoBehaviour
     public Animator anim;
     [SerializeField] private Vector3 CharacterOriginPoint;
     [SerializeField] private Vector3 CharacterAttackPoint;
+    [SerializeField] private GameObject missIndicatorObj;
 
     [Header("HEALTH")]
     [SerializeField] private int MaxHealth;
@@ -99,13 +100,34 @@ public class CharacterCombatCore : MonoBehaviour
     #region HEALTH
     public void TakeDamage()
     {
+        float rand = UnityEngine.Random.Range(0, 100);
+
+        if (rand <= 20)
+        {
+            GameObject obj = Instantiate(missIndicatorObj);
+
+            obj.transform.position = new Vector3(transform.position.x, transform.position.y, 16f);
+
+            obj.GetComponent<MissIndicatorController>().PlayAnimation(obj.transform.position.y + 1f);
+
+            CurrentCharacterCombatState = CharacterCombatState.IDLE;
+
+            if ((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].thisAttackType == AttackType.RANGED) ||
+               (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED))
+                CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
+            else
+                CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
+
+            return;
+        }
+
         CurrentHealth--;
         HealthSlider.value = (float)CurrentHealth / (float)MaxHealth;
 
         if (CurrentHealth <= 0)
         {
             CurrentCharacterCombatState = CharacterCombatState.DYING;
-            if ((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) ||
+            if ((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].thisAttackType == AttackType.RANGED) ||
                (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED) ||
                (thisAttackType == AttackType.SORCERER))
             {
@@ -125,7 +147,7 @@ public class CharacterCombatCore : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.ENEMYTURN;
             }
-            else if((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter.thisAttackType == AttackType.RANGED) || 
+            else if((thisCharacterType == CharacterType.PLAYER && CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].thisAttackType == AttackType.RANGED) || 
                (thisCharacterType == CharacterType.ENEMY && CombatCore.PlayerCharacter.thisAttackType == AttackType.RANGED))
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.TIMER;
             else
@@ -158,11 +180,12 @@ public class CharacterCombatCore : MonoBehaviour
         else
         {
             CurrentTravelState = TravelState.NONE;
-            if (CombatCore.PlayerCharacter.CurrentCharacterCombatState == CharacterCombatState.DYING || CombatCore.EnemyCharacter.CurrentCharacterCombatState == CharacterCombatState.DYING)
+            if (CombatCore.PlayerCharacter.CurrentCharacterCombatState == CharacterCombatState.DYING || 
+                CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentCharacterCombatState == CharacterCombatState.DYING)
             {
                 if (CombatCore.PlayerCharacter.CurrentCharacterCombatState == CharacterCombatState.DYING)
                     CombatCore.FinalResult = GameManager.Result.DEFEAT;
-                else if (CombatCore.EnemyCharacter.CurrentCharacterCombatState == CharacterCombatState.DYING)
+                else if (CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentCharacterCombatState == CharacterCombatState.DYING)
                     CombatCore.FinalResult = GameManager.Result.VICTORY;
                 CombatCore.CurrentCombatState = CombatCore.CombatStates.GAMEOVER;
             }
@@ -228,9 +251,13 @@ public class CharacterCombatCore : MonoBehaviour
     public void AttackOpponent()
     {
         if (thisCharacterType == CharacterType.PLAYER)
-            CombatCore.EnemyCharacter.CurrentCharacterCombatState = CharacterCombatState.ATTACKED;
+        {
+            CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentCharacterCombatState = CharacterCombatState.ATTACKED;
+        }
         else if (thisCharacterType == CharacterType.ENEMY)
+        {
             CombatCore.PlayerCharacter.CurrentCharacterCombatState = CharacterCombatState.ATTACKED;
+        }
     }
     #endregion
 }

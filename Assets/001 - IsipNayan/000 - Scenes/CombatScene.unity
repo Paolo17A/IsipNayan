@@ -3862,6 +3862,7 @@ MonoBehaviour:
   anim: {fileID: 419451659}
   CharacterOriginPoint: {x: -3.5, y: 5.59, z: 0}
   CharacterAttackPoint: {x: 2.25, y: 5.44, z: 0}
+  missIndicatorObj: {fileID: 0}
   MaxHealth: 5
   HealthSlider: {fileID: 28445082}
   CurrentHealth: 0
@@ -5202,7 +5203,7 @@ RectTransform:
   - {fileID: 861666984}
   - {fileID: 2030592933}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5222,6 +5223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 645660538}
+  isMainCamera: 0
 --- !u!1 &673236758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6173,7 +6175,9 @@ MonoBehaviour:
   - {fileID: 308630429}
   CurrentQuestionIndex: 0
   PlayerCharacter: {fileID: 1714973313}
-  EnemyCharacter: {fileID: 1219221177}
+  EnemyCharacter:
+  - {fileID: 1219221177}
+  - {fileID: 1572935099}
   PausePanel: {fileID: 1331153543}
   FinalResult: 0
   VictoryPanel: {fileID: 1206441711}
@@ -6182,6 +6186,7 @@ MonoBehaviour:
   LoadingPanel: {fileID: 861666983}
   ErrorPanel: {fileID: 2030592932}
   ErrorTMP: {fileID: 97969362}
+  selectedEnemyIndex: 0
 --- !u!114 &786298159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,6 +6341,7 @@ MonoBehaviour:
   anim: {fileID: 822505209}
   CharacterOriginPoint: {x: 2.8, y: 5.7, z: 0}
   CharacterAttackPoint: {x: -0.5, y: 5.7, z: 0}
+  missIndicatorObj: {fileID: 0}
   MaxHealth: 15
   HealthSlider: {fileID: 1854605783}
   CurrentHealth: 0
@@ -9303,7 +9309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1219221173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9424,6 +9430,7 @@ MonoBehaviour:
   anim: {fileID: 1219221175}
   CharacterOriginPoint: {x: 3.5, y: 5.5, z: 0}
   CharacterAttackPoint: {x: 0, y: 0, z: 0}
+  missIndicatorObj: {fileID: 681203612388810935, guid: f42d9bb1bea79fe49807bfac1a714b78, type: 3}
   MaxHealth: 15
   HealthSlider: {fileID: 1854605783}
   CurrentHealth: 0
@@ -12781,6 +12788,156 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563953922}
   m_CullTransparentMesh: 1
+--- !u!1 &1572935097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572935102}
+  - component: {fileID: 1572935101}
+  - component: {fileID: 1572935100}
+  - component: {fileID: 1572935099}
+  - component: {fileID: 1572935098}
+  m_Layer: 0
+  m_Name: NewEnemy (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1572935098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ede96b0949e4514e9c199374306b8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterCombatCore: {fileID: 1572935099}
+  CombatCore: {fileID: 786298158}
+--- !u!114 &1572935099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c17376db811144ca02b019b53d3196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharacterCombatState: 0
+  CombatCore: {fileID: 786298158}
+  thisCharacterType: 2
+  thisAttackType: 3
+  anim: {fileID: 1572935100}
+  CharacterOriginPoint: {x: 3.5, y: 5.5, z: 0}
+  CharacterAttackPoint: {x: 0, y: 0, z: 0}
+  missIndicatorObj: {fileID: 681203612388810935, guid: f42d9bb1bea79fe49807bfac1a714b78, type: 3}
+  MaxHealth: 15
+  HealthSlider: {fileID: 1854605783}
+  CurrentHealth: 0
+  CurrentTravelState: 0
+  CharacterFleePoint: {x: 8.5, y: 5.5, z: 0}
+  Projectile: {fileID: 0}
+  ProjectileOriginPoint: {x: 0, y: 0, z: 0}
+  ProjectileSpeed: 0
+  ProjectileLaunched: 0
+--- !u!95 &1572935100
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc231303251275c46b81e5e4b278f105, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1572935101
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935097}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 1011188932, guid: b6cf05944009b1943ab74d0ff4d22865, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4, y: 4.39}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1572935102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: 5.5, z: 0}
+  m_LocalScale: {x: 0.8139, y: 0.8139, z: 0.8139}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598507506
 GameObject:
   m_ObjectHideFlags: 3
@@ -13352,12 +13509,13 @@ MonoBehaviour:
   anim: {fileID: 1714973311}
   CharacterOriginPoint: {x: -3.5, y: 5.5, z: 0}
   CharacterAttackPoint: {x: 0, y: 0, z: 0}
+  missIndicatorObj: {fileID: 681203612388810935, guid: f42d9bb1bea79fe49807bfac1a714b78, type: 3}
   MaxHealth: 5
   HealthSlider: {fileID: 28445082}
   CurrentHealth: 0
   CurrentTravelState: 0
   CharacterFleePoint: {x: 0, y: 0, z: 0}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 681203612388810935, guid: f42d9bb1bea79fe49807bfac1a714b78, type: 3}
   ProjectileOriginPoint: {x: 0, y: 0, z: 0}
   ProjectileSpeed: 0
   ProjectileLaunched: 0

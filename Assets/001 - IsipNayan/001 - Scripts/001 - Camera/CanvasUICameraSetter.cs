@@ -7,8 +7,13 @@ public class CanvasUICameraSetter : MonoBehaviour
 {
     public Canvas canvas;
 
+    public bool isMainCamera;
+
     private void OnEnable()
     {
-        canvas.worldCamera = GameManager.Instance.MyUICamera;
+        if (!isMainCamera)
+            canvas.worldCamera = GameManager.Instance.MyUICamera;
+        else
+            canvas.worldCamera = GameManager.Instance.MainCamera;
     }
 }

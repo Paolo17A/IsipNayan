@@ -42,19 +42,19 @@ public class CombatController : MonoBehaviour
                     CombatCore.PlayerCharacter.CurrentCharacterCombatState = CharacterCombatCore.CharacterCombatState.ATTACKING;
                 break;
             case CombatCore.CombatStates.ENEMYTURN:
-                if (CombatCore.EnemyCharacter.thisAttackType == CharacterCombatCore.AttackType.MELEE)
+                if (CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].thisAttackType == CharacterCombatCore.AttackType.MELEE)
                 {
                     if (CombatCore.EnemyWillRunAway)
-                        CombatCore.EnemyCharacter.CurrentTravelState = CharacterCombatCore.TravelState.FLEE;
+                        CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentTravelState = CharacterCombatCore.TravelState.FLEE;
                     else
-                        CombatCore.EnemyCharacter.CurrentTravelState = CharacterCombatCore.TravelState.APPROACH;
+                        CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentTravelState = CharacterCombatCore.TravelState.APPROACH;
                 }
-                else if (CombatCore.EnemyCharacter.thisAttackType == CharacterCombatCore.AttackType.RANGED || CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.SORCERER)
+                else if (CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].thisAttackType == CharacterCombatCore.AttackType.RANGED || CombatCore.PlayerCharacter.thisAttackType == CharacterCombatCore.AttackType.SORCERER)
                 {
                     if (CombatCore.EnemyWillRunAway)
-                        CombatCore.EnemyCharacter.CurrentTravelState = CharacterCombatCore.TravelState.FLEE;
+                        CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentTravelState = CharacterCombatCore.TravelState.FLEE;
                     else
-                        CombatCore.EnemyCharacter.CurrentCharacterCombatState = CharacterCombatCore.CharacterCombatState.ATTACKING;
+                        CombatCore.EnemyCharacter[CombatCore.selectedEnemyIndex].CurrentCharacterCombatState = CharacterCombatCore.CharacterCombatState.ATTACKING;
                 }
                 break;
             case CombatCore.CombatStates.GAMEOVER:

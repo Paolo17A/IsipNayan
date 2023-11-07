@@ -8,13 +8,15 @@ public class CharacterBattleController : MonoBehaviour
     [SerializeField] private CharacterCombatCore CharacterCombatCore;
     [SerializeField] private CombatCore CombatCore;
 
-    private void Awake()
+    private void OnEnable()
     {
+        //Debug.Log(transform.name + " has been enabled");
         CharacterCombatCore.onCharacterCombatStateChange += CharacterCombatStateChange;
     }
 
     private void OnDisable()
     {
+        //Debug.Log(transform.name + " has been disabled");
         CharacterCombatCore.onCharacterCombatStateChange -= CharacterCombatStateChange;
     }
 

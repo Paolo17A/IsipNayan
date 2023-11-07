@@ -73,7 +73,7 @@ public class CombatCore : MonoBehaviour
 
     [Header("CHARACTERS")]
     public CharacterCombatCore PlayerCharacter;
-    public CharacterCombatCore EnemyCharacter;
+    public List<CharacterCombatCore> EnemyCharacter;
 
     [Header("PAUSE")]
     [SerializeField] private GameObject PausePanel;
@@ -92,6 +92,7 @@ public class CombatCore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ErrorTMP;
 
     private int failedCallbackCounter;
+    [HideInInspector] public int selectedEnemyIndex;
     //==================================================================================================================
     #endregion
 
@@ -112,7 +113,21 @@ public class CombatCore : MonoBehaviour
 
         #region CHARACTERS
         PlayerCharacter.InitializeCharacter();
-        EnemyCharacter.InitializeCharacter();
+
+        selectedEnemyIndex = UnityEngine.Random.Range(0, EnemyCharacter.Count);
+        for(int i = 0; i < EnemyCharacter.Count; i++)
+        {
+            if (i == selectedEnemyIndex)
+                EnemyCharacter[i].gameObject.SetActive(true);
+            else
+                EnemyCharacter[i].gameObject.SetActive(false);
+        }
+        /*foreach (CharacterCombatCore enemy in EnemyCharacter)
+            enemy.gameObject.SetActive(false);
+
+        EnemyCharacter[selectedEnemyIndex].gameObject.SetActive(true);*/
+        EnemyCharacter[selectedEnemyIndex].InitializeCharacter();
+
         EnemyWillRunAway = false;
         #endregion
 
@@ -248,7 +263,7 @@ public class CombatCore : MonoBehaviour
 
     public void RestartGame()
     {
-        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, GameManager.Result.DEFEAT, EnemyCharacter.GetDamageDealt());
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, GameManager.Result.DEFEAT, EnemyCharacter[selectedEnemyIndex].GetDamageDealt());
 
         if (GameManager.Instance.DebugMode)
         {
@@ -273,14 +288,14 @@ public class CombatCore : MonoBehaviour
     public void ProcessVictory()
     {
         VictoryPanel.SetActive(true);
-        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter[selectedEnemyIndex].GetDamageDealt());
         UpdateGameHistoryPlayFab(false);
     }
 
     public void ProcessDefeat()
     {
         DefeatPanel.SetActive(true);
-        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter.GetDamageDealt());
+        PlayerData.AddGameHistory(PlayerData.GameType.QUIZ, FinalResult, EnemyCharacter[selectedEnemyIndex].GetDamageDealt());
         UpdateGameHistoryPlayFab(false);
     }
 
